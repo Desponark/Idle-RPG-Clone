@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://brdxej1ucir25"]
+
+[ext_resource type="Texture2D" uid="uid://cjrc02l7icjms" path="res://icon.svg" id="1_v4b1m"]
+[ext_resource type="Script" path="res://Agents/Enemies/Enemy.cs" id="2_e7qlc"]
+
+[node name="Enemy" type="Sprite2D"]
+modulate = Color(1, 0, 0, 1)
+scale = Vector2(0.46875, 1)
+texture = ExtResource("1_v4b1m")
+script = ExtResource("2_e7qlc")
