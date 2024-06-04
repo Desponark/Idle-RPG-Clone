@@ -1,0 +1,50 @@
+[gd_scene load_steps=8 format=3 uid="uid://buie0mustst4"]
+
+[ext_resource type="Script" path="res://Gamemaster.cs" id="1_p34u7"]
+[ext_resource type="PackedScene" uid="uid://brdxej1ucir25" path="res://Agents/Enemies/Enemy.tscn" id="2_8et8y"]
+[ext_resource type="Script" path="res://Scripts/ParallaxBackground.cs" id="3_wvv84"]
+[ext_resource type="Texture2D" uid="uid://baed0cr7fmg6c" path="res://Assets/backgroundColorForest.png" id="4_bym31"]
+[ext_resource type="Texture2D" uid="uid://bjud6pibpcbm4" path="res://Assets/grassMid.png" id="5_7ipdi"]
+[ext_resource type="PackedScene" uid="uid://c5i2km2kcqp8t" path="res://Agents/Player/Player.tscn" id="7_bamax"]
+[ext_resource type="PackedScene" uid="uid://dlfgk8v7lonjc" path="res://HUD.tscn" id="8_j430g"]
+
+[node name="Gamemaster" type="Node2D" node_paths=PackedStringArray("player", "spawnTimer")]
+script = ExtResource("1_p34u7")
+player = NodePath("Player")
+enemyScenes = [ExtResource("2_8et8y")]
+spawnTimer = NodePath("SpawnTimer")
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+script = ExtResource("3_wvv84")
+
+[node name="BackGround" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.5, 1)
+motion_mirroring = Vector2(1024, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/BackGround"]
+texture_repeat = 2
+position = Vector2(0, -139.39)
+texture = ExtResource("4_bym31")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 1152, 1024)
+
+[node name="Ground" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2(70, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Ground"]
+texture_repeat = 2
+position = Vector2(0, 578)
+texture = ExtResource("5_7ipdi")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 1152, 70)
+
+[node name="SpawnTimer" type="Timer" parent="."]
+wait_time = 3.0
+autostart = true
+
+[node name="HUD" parent="." instance=ExtResource("8_j430g")]
+
+[node name="Player" parent="." instance=ExtResource("7_bamax")]
+position = Vector2(104, 515)
