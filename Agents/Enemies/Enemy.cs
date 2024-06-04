@@ -1,14 +1,11 @@
 using Godot;
-using System;
 
-public partial class Enemy : Sprite2D {
-	// Called when the node enters the scene tree for the first time.
+public partial class Enemy : Agent {
+	public int ExpWorth = 10;
+
 	public override void _Ready() {
 		AddToGroup("Move", true);
-	}
-
-	// Called every frame. 'delta' is the elapsed time since the previous frame.
-	public override void _Process(double delta) {
+		Stats.HP = 10;
 	}
 
 	public void Move(Vector2 movement) {
