@@ -1,0 +1,249 @@
+[gd_scene load_steps=2 format=3 uid="uid://dlfgk8v7lonjc"]
+
+[ext_resource type="Script" path="res://HUD.cs" id="1_echo6"]
+
+[node name="HUD" type="CanvasLayer" node_paths=PackedStringArray("strength", "dexterity", "intelligence", "maxHP", "hp", "maxSP", "sp", "maxMP", "mp", "atk", "magAtk", "acc", "atkSpd", "moveSpd", "lvl", "exp", "expTotal", "expReq", "ap", "btnStr", "btnDex", "btnInt")]
+script = ExtResource("1_echo6")
+strength = NodePath("GridContainer3/STR")
+dexterity = NodePath("GridContainer3/DEX")
+intelligence = NodePath("GridContainer3/INT")
+maxHP = NodePath("GridContainer2/MaxHP")
+hp = NodePath("GridContainer2/HP")
+maxSP = NodePath("GridContainer2/MaxSP")
+sp = NodePath("GridContainer2/SP")
+maxMP = NodePath("GridContainer2/MaxMP")
+mp = NodePath("GridContainer2/MP")
+atk = NodePath("GridContainer4/Atk")
+magAtk = NodePath("GridContainer4/MagAtk")
+acc = NodePath("GridContainer4/Acc")
+atkSpd = NodePath("GridContainer4/AtkSpd")
+moveSpd = NodePath("GridContainer5/MoveSpd")
+lvl = NodePath("GridContainer/Lvl")
+exp = NodePath("GridContainer/Exp")
+expTotal = NodePath("GridContainer/ExpTotal")
+expReq = NodePath("GridContainer/ExpReq")
+ap = NodePath("GridContainer3/AP")
+btnStr = NodePath("GridContainer3/BtnStr")
+btnDex = NodePath("GridContainer3/BtnDex")
+btnInt = NodePath("GridContainer3/BtnInt")
+
+[node name="GridContainer" type="GridContainer" parent="."]
+offset_right = 157.0
+offset_bottom = 204.0
+columns = 2
+
+[node name="Label" type="Label" parent="GridContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Level:"
+
+[node name="Lvl" type="Label" parent="GridContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+
+[node name="Label2" type="Label" parent="GridContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Exp:"
+
+[node name="Exp" type="Label" parent="GridContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+
+[node name="Label3" type="Label" parent="GridContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Exp Total:"
+
+[node name="ExpTotal" type="Label" parent="GridContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+
+[node name="Label4" type="Label" parent="GridContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Exp Req:"
+
+[node name="ExpReq" type="Label" parent="GridContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+
+[node name="GridContainer2" type="GridContainer" parent="."]
+offset_left = 237.12
+offset_right = 362.12
+offset_bottom = 206.0
+columns = 2
+
+[node name="Label" type="Label" parent="GridContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "MaxHP:"
+
+[node name="MaxHP" type="Label" parent="GridContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+
+[node name="Label2" type="Label" parent="GridContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "HP:"
+
+[node name="HP" type="Label" parent="GridContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+
+[node name="Label3" type="Label" parent="GridContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Max SP:"
+
+[node name="MaxSP" type="Label" parent="GridContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+
+[node name="Label4" type="Label" parent="GridContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "SP:"
+
+[node name="SP" type="Label" parent="GridContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+
+[node name="Label5" type="Label" parent="GridContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Max MP:"
+
+[node name="MaxMP" type="Label" parent="GridContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+
+[node name="Label6" type="Label" parent="GridContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "MP"
+
+[node name="MP" type="Label" parent="GridContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+
+[node name="GridContainer3" type="GridContainer" parent="."]
+offset_left = 458.475
+offset_right = 507.475
+offset_bottom = 136.0
+columns = 3
+
+[node name="Control" type="Control" parent="GridContainer3"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="GridContainer3"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "AP:"
+
+[node name="AP" type="Label" parent="GridContainer3"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+
+[node name="BtnStr" type="Button" parent="GridContainer3"]
+layout_mode = 2
+text = "+"
+
+[node name="Label2" type="Label" parent="GridContainer3"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "STR:"
+
+[node name="STR" type="Label" parent="GridContainer3"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+
+[node name="BtnDex" type="Button" parent="GridContainer3"]
+layout_mode = 2
+text = "+"
+
+[node name="Label3" type="Label" parent="GridContainer3"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "DEX:"
+
+[node name="DEX" type="Label" parent="GridContainer3"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+
+[node name="BtnInt" type="Button" parent="GridContainer3"]
+layout_mode = 2
+text = "+"
+
+[node name="Label4" type="Label" parent="GridContainer3"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "INT:"
+
+[node name="INT" type="Label" parent="GridContainer3"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+
+[node name="GridContainer4" type="GridContainer" parent="."]
+offset_left = 635.17
+offset_right = 720.17
+offset_bottom = 136.0
+columns = 2
+
+[node name="Label" type="Label" parent="GridContainer4"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "ATK:"
+
+[node name="Atk" type="Label" parent="GridContainer4"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+
+[node name="Label2" type="Label" parent="GridContainer4"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "MagAtk:"
+
+[node name="MagAtk" type="Label" parent="GridContainer4"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+
+[node name="Label3" type="Label" parent="GridContainer4"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Acc:"
+
+[node name="Acc" type="Label" parent="GridContainer4"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+
+[node name="Label4" type="Label" parent="GridContainer4"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "AtkSpd:"
+
+[node name="AtkSpd" type="Label" parent="GridContainer4"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+
+[node name="GridContainer5" type="GridContainer" parent="."]
+offset_left = 806.71
+offset_right = 846.71
+offset_bottom = 40.0
+columns = 2
+
+[node name="Label" type="Label" parent="GridContainer5"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "MoveSpd:"
+
+[node name="MoveSpd" type="Label" parent="GridContainer5"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
