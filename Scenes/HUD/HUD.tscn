@@ -1,12 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://dlfgk8v7lonjc"]
+[gd_scene load_steps=3 format=3 uid="uid://dlfgk8v7lonjc"]
 
-[ext_resource type="Script" path="res://Scripts/HUD.cs" id="1_echo6"]
+[ext_resource type="Script" path="res://Scripts/HUD/HUD.cs" id="1_echo6"]
+[ext_resource type="PackedScene" uid="uid://dgten5paskxdo" path="res://Scenes/HUD/Attribute.tscn" id="2_8qxh1"]
 
-[node name="HUD" type="CanvasLayer" node_paths=PackedStringArray("strength", "dexterity", "intelligence", "maxHP", "hp", "maxSP", "sp", "maxMP", "mp", "atk", "magAtk", "acc", "atkSpd", "moveSpd", "lvl", "exp", "expTotal", "expReq", "ap", "btnStr", "btnDex", "btnInt")]
+[node name="HUD" type="CanvasLayer" node_paths=PackedStringArray("maxHP", "hp", "maxSP", "sp", "maxMP", "mp", "atk", "magAtk", "acc", "atkSpd", "moveSpd", "lvl", "exp", "expTotal", "expReq", "ap", "rp", "attributesContainer")]
 script = ExtResource("1_echo6")
-strength = NodePath("GridContainer3/STR")
-dexterity = NodePath("GridContainer3/DEX")
-intelligence = NodePath("GridContainer3/INT")
 maxHP = NodePath("GridContainer2/MaxHP")
 hp = NodePath("GridContainer2/HP")
 maxSP = NodePath("GridContainer2/MaxSP")
@@ -23,9 +21,9 @@ exp = NodePath("GridContainer/Exp")
 expTotal = NodePath("GridContainer/ExpTotal")
 expReq = NodePath("GridContainer/ExpReq")
 ap = NodePath("GridContainer3/AP")
-btnStr = NodePath("GridContainer3/BtnStr")
-btnDex = NodePath("GridContainer3/BtnDex")
-btnInt = NodePath("GridContainer3/BtnInt")
+rp = NodePath("GridContainer3/RP")
+attributeControlScene = ExtResource("2_8qxh1")
+attributesContainer = NodePath("AttributesContainer")
 
 [node name="GridContainer" type="GridContainer" parent="."]
 offset_right = 157.0
@@ -135,13 +133,10 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 20
 
 [node name="GridContainer3" type="GridContainer" parent="."]
-offset_left = 458.475
-offset_right = 507.475
+offset_left = 425.35
+offset_right = 474.35
 offset_bottom = 136.0
-columns = 3
-
-[node name="Control" type="Control" parent="GridContainer3"]
-layout_mode = 2
+columns = 2
 
 [node name="Label" type="Label" parent="GridContainer3"]
 layout_mode = 2
@@ -152,44 +147,20 @@ text = "AP:"
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
 
-[node name="BtnStr" type="Button" parent="GridContainer3"]
-layout_mode = 2
-text = "+"
-
 [node name="Label2" type="Label" parent="GridContainer3"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
-text = "STR:"
+text = "RP:"
 
-[node name="STR" type="Label" parent="GridContainer3"]
+[node name="RP" type="Label" parent="GridContainer3"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
 
-[node name="BtnDex" type="Button" parent="GridContainer3"]
-layout_mode = 2
-text = "+"
-
-[node name="Label3" type="Label" parent="GridContainer3"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 20
-text = "DEX:"
-
-[node name="DEX" type="Label" parent="GridContainer3"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 20
-
-[node name="BtnInt" type="Button" parent="GridContainer3"]
-layout_mode = 2
-text = "+"
-
-[node name="Label4" type="Label" parent="GridContainer3"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 20
-text = "INT:"
-
-[node name="INT" type="Label" parent="GridContainer3"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 20
+[node name="AttributesContainer" type="VBoxContainer" parent="."]
+offset_left = 425.35
+offset_top = 71.695
+offset_right = 542.35
+offset_bottom = 111.695
 
 [node name="GridContainer4" type="GridContainer" parent="."]
 offset_left = 635.17
