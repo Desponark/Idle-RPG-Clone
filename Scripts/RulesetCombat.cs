@@ -45,7 +45,7 @@ public static class RulesetCombat {
 }
 
 public static class RulesetStats {
-	private const string FILENAME = "Save.tres";
+	private const string FILENAME = "SaveData.tres";
 
 	public static void Save(Player player) {
 		var data = new SaveData(player.Stats);
