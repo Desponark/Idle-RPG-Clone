@@ -24,13 +24,12 @@ public partial class Gamemaster : Node2D {
 
 	private HUD hud;
 
+	private PersistentData persistentData = new PersistentData();
+
 	public override void _Ready() {
 		spawnTimer.Timeout += Timeout;
 		hud = GetNode<HUD>("HUD");
-		// TODO: implement attributes properly
-		hud.StrUp += () => { RulesetStats.IncreaseAttribute(player.Stats.Attributes.OfType<Strength>().FirstOrDefault(), player.Stats); };
-		hud.DexUp += () => { RulesetStats.IncreaseAttribute(player.Stats.Attributes.OfType<Dexterity>().FirstOrDefault(), player.Stats); };
-		hud.IntUp += () => { RulesetStats.IncreaseAttribute(player.Stats.Attributes.OfType<Intelligence>().FirstOrDefault(), player.Stats); };
+		hud.AttributeUp += (Attribute attribute) => { RulesetStats.IncreaseAttribute(attribute, player.Stats); };
 	}
 
 	public override void _Input(InputEvent @event) {
@@ -40,8 +39,6 @@ public partial class Gamemaster : Node2D {
 	}
 
 	public override void _Process(double delta) {
-		hud.Update(player);
-
 		var enemy = enemies.FirstOrDefault();
 		if (Ruleset.IsInCombatDistance(player, enemy)) {
 			CurrentState = State.Fighting;
@@ -67,7 +64,7 @@ public partial class Gamemaster : Node2D {
 					CurrentState = State.Running;
 				}
 				if (Ruleset.IsDead(player)) {
-					// restart game
+					// restart game					
 					GetTree().ReloadCurrentScene();
 				}
 				break;

@@ -1,0 +1,25 @@
+[gd_scene load_steps=2 format=3 uid="uid://dgten5paskxdo"]
+
+[ext_resource type="Script" path="res://Scripts/HUD/AttributeControl.cs" id="1_qvu2n"]
+
+[node name="Attribute" type="HBoxContainer" node_paths=PackedStringArray("Button", "LbName", "LbValue")]
+offset_right = 117.0
+offset_bottom = 40.0
+script = ExtResource("1_qvu2n")
+Button = NodePath("Button")
+LbName = NodePath("Name")
+LbValue = NodePath("Value")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "+"
+
+[node name="Name" type="Label" parent="."]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Attribute"
+
+[node name="Value" type="Label" parent="."]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
