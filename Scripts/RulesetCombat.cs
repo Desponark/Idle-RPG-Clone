@@ -12,7 +12,7 @@ public static class RulesetCombat {
 		}
 	}
 
-	private static void TakeDamage(Agent target, float amount) {
+	public static void TakeDamage(Agent target, float amount) {
 		target.Stats.HP -= amount;
 	}
 

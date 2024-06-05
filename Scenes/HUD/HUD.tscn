@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Scripts/HUD/HUD.cs" id="1_echo6"]
 [ext_resource type="PackedScene" uid="uid://dgten5paskxdo" path="res://Scenes/HUD/Attribute.tscn" id="2_8qxh1"]
 
-[node name="HUD" type="CanvasLayer" node_paths=PackedStringArray("maxHP", "hp", "maxSP", "sp", "maxMP", "mp", "atk", "magAtk", "acc", "atkSpd", "moveSpd", "lvl", "exp", "expTotal", "expReq", "ap", "rp", "rpPotential", "highestLevel", "longestRun", "timeRunning", "monstersKilled", "highestLevelRecord", "longestRunRecord", "timeRunningRecord", "monstersKilledRecord", "attributesContainer")]
+[node name="HUD" type="CanvasLayer" node_paths=PackedStringArray("maxHP", "hp", "maxSP", "sp", "maxMP", "mp", "atk", "magAtk", "acc", "atkSpd", "moveSpd", "lvl", "exp", "expTotal", "expReq", "ap", "rp", "rpPotential", "highestLevel", "longestRun", "timeRunning", "monstersKilled", "highestLevelRecord", "longestRunRecord", "timeRunningRecord", "monstersKilledRecord", "attributesContainer", "abilityContainer")]
 script = ExtResource("1_echo6")
 maxHP = NodePath("DefensiveStats/VBoxContainer2/MaxHP")
 hp = NodePath("DefensiveStats/VBoxContainer2/HP")
@@ -19,7 +19,7 @@ moveSpd = NodePath("OtherStats/VBoxContainer2/MoveSpd")
 lvl = NodePath("ExpStats/VBoxContainer2/Lvl")
 exp = NodePath("ExpStats/VBoxContainer2/Exp")
 expTotal = NodePath("ExpStats/VBoxContainer2/ExpTotal")
-expReq = NodePath("ExpStats/VBoxContainer2/ExpReq")
+expReq = NodePath("ExpStats/VBoxContainer2/Exp")
 ap = NodePath("UpgradeStats/VBoxContainer2/AP")
 rp = NodePath("UpgradeStats/VBoxContainer2/RP")
 rpPotential = NodePath("UpgradeStats/VBoxContainer2/RPPotential")
@@ -33,10 +33,11 @@ timeRunningRecord = NodePath("GameStatistics/VBoxContainer2/TimeRunningRecord")
 monstersKilledRecord = NodePath("GameStatistics/VBoxContainer2/MonstersKilledRecord")
 attributeControlScene = ExtResource("2_8qxh1")
 attributesContainer = NodePath("AttributesContainer")
+abilityContainer = NodePath("ScrollContainer/AbilityContainer")
 
 [node name="ExpStats" type="HBoxContainer" parent="."]
-offset_right = 157.0
-offset_bottom = 204.0
+offset_right = 116.0
+offset_bottom = 136.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="ExpStats"]
 layout_mode = 2
@@ -85,8 +86,8 @@ theme_override_font_sizes/font_size = 20
 text = "-1"
 
 [node name="DefensiveStats" type="HBoxContainer" parent="."]
-offset_left = 156.44
-offset_right = 281.44
+offset_left = 156.0
+offset_right = 261.0
 offset_bottom = 206.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="DefensiveStats"]
@@ -162,9 +163,9 @@ theme_override_font_sizes/font_size = 20
 text = "-1"
 
 [node name="UpgradeStats" type="HBoxContainer" parent="."]
-offset_left = 322.505
-offset_right = 462.505
-offset_bottom = 136.0
+offset_left = 323.0
+offset_right = 463.0
+offset_bottom = 101.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="UpgradeStats"]
 layout_mode = 2
@@ -282,8 +283,8 @@ theme_override_font_sizes/font_size = 20
 text = "-1"
 
 [node name="GameStatistics" type="HBoxContainer" parent="."]
-offset_left = 732.5
-offset_right = 1148.5
+offset_left = 733.0
+offset_right = 974.0
 offset_bottom = 311.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="GameStatistics"]
@@ -381,3 +382,14 @@ text = "-1"
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
 text = "-1"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -109.0
+offset_bottom = 304.0
+grow_horizontal = 0
+
+[node name="AbilityContainer" type="VBoxContainer" parent="ScrollContainer"]
+layout_mode = 2

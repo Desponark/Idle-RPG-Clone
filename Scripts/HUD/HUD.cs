@@ -29,6 +29,9 @@ public partial class HUD : CanvasLayer {
 	[Export]
 	private Node attributesContainer;
 
+	[Export]
+	private Node abilityContainer;
+
 
 	public void Setup(GameStatistics gameStatistics) {
 		this.gameStatistics = gameStatistics;
@@ -36,6 +39,7 @@ public partial class HUD : CanvasLayer {
 
 	public override void _Ready() {
 		PopulateAttributes();
+		PopulateAbilities();
 	}
 
 	private void PopulateAttributes() {
@@ -46,6 +50,20 @@ public partial class HUD : CanvasLayer {
 			attrCtrl.LbValue.Text = attribute.Value.ToString();
 			attrCtrl.Button.Pressed += () => { AttributeUp.Invoke(attribute); };
 			attributesContainer.AddChild(attrCtrl);
+		}
+	}
+
+	private void PopulateAbilities() {
+		foreach (var ability in player.Abilities) {
+			var abilityBtn = ability.scene.Instantiate<AbilityButton>();
+			abilityBtn.LblName.Text = ability.Name;
+			abilityBtn.LblLevel.Text = ability.Level.ToString();
+			abilityBtn.LblDamage.Text = ability.BaseDamage.ToString();
+			abilityBtn.LblCost.Text = ability.CastCost.ToString();
+			abilityBtn.LblUpgradeCost.Text = ability.UpgradeCost.ToString();
+			abilityBtn.UseButton.Pressed += () => { };
+			abilityBtn.UpgradeButton.Pressed += () => { };
+			abilityContainer.AddChild(abilityBtn);
 		}
 	}
 

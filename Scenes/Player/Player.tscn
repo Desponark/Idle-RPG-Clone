@@ -1,11 +1,21 @@
-[gd_scene load_steps=10 format=3 uid="uid://c5i2km2kcqp8t"]
+[gd_scene load_steps=13 format=3 uid="uid://c5i2km2kcqp8t"]
 
 [ext_resource type="Texture2D" uid="uid://cjrc02l7icjms" path="res://icon.svg" id="1_dmor0"]
 [ext_resource type="Script" path="res://Scripts/Agents/Player/Player.cs" id="2_y4nls"]
+[ext_resource type="PackedScene" uid="uid://4khp85w2htyr" path="res://Scenes/Abilities/AbilityButton.tscn" id="3_a25kb"]
+[ext_resource type="Script" path="res://Scripts/Abilities/FireBolt.cs" id="3_atxml"]
 [ext_resource type="Script" path="res://Scripts/Agents/Stats.cs" id="3_uus8g"]
 [ext_resource type="Script" path="res://Resources/Attributes/Strength.cs" id="4_3257m"]
 [ext_resource type="Script" path="res://Resources/Attributes/Dexterity.cs" id="5_m4ypj"]
 [ext_resource type="Script" path="res://Resources/Attributes/Intelligence.cs" id="6_vqcyg"]
+
+[sub_resource type="Resource" id="Resource_6q4w0"]
+script = ExtResource("3_atxml")
+Name = "FireBolt"
+CastCost = 20
+BaseDamage = 5
+unlockCost = 1
+scene = ExtResource("3_a25kb")
 
 [sub_resource type="Resource" id="Resource_axef2"]
 script = ExtResource("4_3257m")
@@ -24,6 +34,7 @@ scale = Vector2(0.5, 1)
 texture = ExtResource("1_dmor0")
 script = ExtResource("2_y4nls")
 Stats = NodePath("Stats")
+Abilities = [SubResource("Resource_6q4w0")]
 
 [node name="Stats" type="Node" parent="."]
 script = ExtResource("3_uus8g")
