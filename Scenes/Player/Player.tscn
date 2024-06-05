@@ -1,8 +1,8 @@
 [gd_scene load_steps=10 format=3 uid="uid://c5i2km2kcqp8t"]
 
 [ext_resource type="Texture2D" uid="uid://cjrc02l7icjms" path="res://icon.svg" id="1_dmor0"]
-[ext_resource type="Script" path="res://Scripts/Player/Player.cs" id="2_y4nls"]
-[ext_resource type="Script" path="res://Scripts/Stats.cs" id="3_uus8g"]
+[ext_resource type="Script" path="res://Scripts/Agents/Player/Player.cs" id="2_y4nls"]
+[ext_resource type="Script" path="res://Scripts/Agents/Stats.cs" id="3_uus8g"]
 [ext_resource type="Script" path="res://Resources/Attributes/Strength.cs" id="4_3257m"]
 [ext_resource type="Script" path="res://Resources/Attributes/Dexterity.cs" id="5_m4ypj"]
 [ext_resource type="Script" path="res://Resources/Attributes/Intelligence.cs" id="6_vqcyg"]
