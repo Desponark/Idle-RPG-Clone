@@ -167,7 +167,9 @@ public partial class Stats : Node {
 		set => moveSpd = value;
 	}
 
+
 	// Exp
+
 	[Export]
 	public int Lvl = 1;
 	public int Exp = 0;
@@ -177,4 +179,10 @@ public partial class Stats : Node {
 	public int AP = 0;
 	[Export]
 	public int RP = 0;
+	private int rpPotential = 0;
+	[Export]
+	public int RPPotential {
+		get => rpPotential + (Lvl - 1);
+		set => rpPotential = value;
+	}
 }

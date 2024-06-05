@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Scripts/HUD/HUD.cs" id="1_echo6"]
 [ext_resource type="PackedScene" uid="uid://dgten5paskxdo" path="res://Scenes/HUD/Attribute.tscn" id="2_8qxh1"]
 
-[node name="HUD" type="CanvasLayer" node_paths=PackedStringArray("maxHP", "hp", "maxSP", "sp", "maxMP", "mp", "atk", "magAtk", "acc", "atkSpd", "moveSpd", "lvl", "exp", "expTotal", "expReq", "ap", "rp", "attributesContainer")]
+[node name="HUD" type="CanvasLayer" node_paths=PackedStringArray("maxHP", "hp", "maxSP", "sp", "maxMP", "mp", "atk", "magAtk", "acc", "atkSpd", "moveSpd", "lvl", "exp", "expTotal", "expReq", "ap", "rp", "rpPotential", "attributesContainer")]
 script = ExtResource("1_echo6")
 maxHP = NodePath("GridContainer2/MaxHP")
 hp = NodePath("GridContainer2/HP")
@@ -22,6 +22,7 @@ expTotal = NodePath("GridContainer/ExpTotal")
 expReq = NodePath("GridContainer/ExpReq")
 ap = NodePath("GridContainer3/AP")
 rp = NodePath("GridContainer3/RP")
+rpPotential = NodePath("GridContainer3/RPPotential")
 attributeControlScene = ExtResource("2_8qxh1")
 attributesContainer = NodePath("AttributesContainer")
 
@@ -156,11 +157,20 @@ text = "RP:"
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
 
+[node name="Label3" type="Label" parent="GridContainer3"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "RPPotential:"
+
+[node name="RPPotential" type="Label" parent="GridContainer3"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+
 [node name="AttributesContainer" type="VBoxContainer" parent="."]
 offset_left = 425.35
-offset_top = 71.695
+offset_top = 123.255
 offset_right = 542.35
-offset_bottom = 111.695
+offset_bottom = 163.255
 
 [node name="GridContainer4" type="GridContainer" parent="."]
 offset_left = 635.17

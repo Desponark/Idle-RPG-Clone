@@ -15,7 +15,7 @@ public partial class HUD : CanvasLayer {
 	[Export]
 	private Label lvl, exp, expTotal, expReq;
 	[Export]
-	private Label ap, rp;
+	private Label ap, rp, rpPotential;
 
 	public event Action<Attribute> AttributeUp;
 
@@ -75,6 +75,7 @@ public partial class HUD : CanvasLayer {
 
 		Assign(ap, Player.Stats.AP);
 		Assign(rp, Player.Stats.RP);
+		Assign(rpPotential, Player.Stats.RPPotential);
 	}
 
 	private void UpdateAttributes() {

@@ -1,6 +1,7 @@
 using System;
+using Godot;
 
-public static class Ruleset {
+public static class RulesetCombat {
 
 	private const float CombatDistance = 100;
 
@@ -27,8 +28,8 @@ public static class Ruleset {
 	}
 
 	public static void Combat(Agent player, Agent enemy, double delta) {
-		Ruleset.Attack(enemy, player, delta);
-		Ruleset.Attack(player, enemy, delta);
+		RulesetCombat.Attack(enemy, player, delta);
+		RulesetCombat.Attack(player, enemy, delta);
 	}
 
 	public static bool IsDead(Agent agent) {
@@ -44,6 +45,21 @@ public static class Ruleset {
 }
 
 public static class RulesetStats {
+	private const string FILENAME = "Save.tres";
+
+	public static void Save(Player player) {
+		var data = new SaveData(player.Stats);
+		ResourceSaver.Save(data, FILENAME);
+	}
+
+	public static void Load(Player player) {
+		if (ResourceLoader.Exists(FILENAME)) {
+			var resource = ResourceLoader.Load(FILENAME);
+			if (resource is SaveData persistentData)
+				player.Stats.RP = persistentData.RP;
+		}
+	}
+
 	public static bool CanIncreaseAttributes(Stats stats) {
 		return stats.AP > 0;
 	}

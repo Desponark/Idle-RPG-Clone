@@ -24,12 +24,12 @@ public partial class Gamemaster : Node2D {
 
 	private HUD hud;
 
-	private PersistentData persistentData = new PersistentData();
-
 	public override void _Ready() {
 		spawnTimer.Timeout += Timeout;
 		hud = GetNode<HUD>("HUD");
 		hud.AttributeUp += (Attribute attribute) => { RulesetStats.IncreaseAttribute(attribute, player.Stats); };
+
+		RulesetStats.Load(player);
 	}
 
 	public override void _Input(InputEvent @event) {
@@ -40,7 +40,7 @@ public partial class Gamemaster : Node2D {
 
 	public override void _Process(double delta) {
 		var enemy = enemies.FirstOrDefault();
-		if (Ruleset.IsInCombatDistance(player, enemy)) {
+		if (RulesetCombat.IsInCombatDistance(player, enemy)) {
 			CurrentState = State.Fighting;
 		}
 
@@ -55,16 +55,17 @@ public partial class Gamemaster : Node2D {
 			case State.Fighting:
 				spawnTimer.Paused = true;
 
-				Ruleset.Combat(player, enemy, delta);
+				RulesetCombat.Combat(player, enemy, delta);
 
-				if (Ruleset.IsDead(enemy)) {
+				if (RulesetCombat.IsDead(enemy)) {
 					RulesetStats.GainExp(player.Stats, enemy.ExpWorth);
 					enemies.Remove(enemy);
 					enemy.QueueFree();
 					CurrentState = State.Running;
 				}
-				if (Ruleset.IsDead(player)) {
-					// restart game					
+				if (RulesetCombat.IsDead(player)) {
+					// restart game
+					RulesetStats.Save(player);
 					GetTree().ReloadCurrentScene();
 				}
 				break;
