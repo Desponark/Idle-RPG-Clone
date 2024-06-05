@@ -1,21 +1,21 @@
 [gd_scene load_steps=10 format=3 uid="uid://c5i2km2kcqp8t"]
 
 [ext_resource type="Texture2D" uid="uid://cjrc02l7icjms" path="res://icon.svg" id="1_dmor0"]
-[ext_resource type="Script" path="res://Agents/Player/Player.cs" id="2_y4nls"]
+[ext_resource type="Script" path="res://Scripts/Player/Player.cs" id="2_y4nls"]
 [ext_resource type="Script" path="res://Scripts/Stats.cs" id="3_uus8g"]
-[ext_resource type="Script" path="res://Resources/Strength.cs" id="4_3257m"]
-[ext_resource type="Script" path="res://Resources/Dexterity.cs" id="5_m4ypj"]
-[ext_resource type="Script" path="res://Resources/Intelligence.cs" id="6_vqcyg"]
+[ext_resource type="Script" path="res://Resources/Attributes/Strength.cs" id="4_3257m"]
+[ext_resource type="Script" path="res://Resources/Attributes/Dexterity.cs" id="5_m4ypj"]
+[ext_resource type="Script" path="res://Resources/Attributes/Intelligence.cs" id="6_vqcyg"]
 
-[sub_resource type="Resource" id="Resource_6xseg"]
+[sub_resource type="Resource" id="Resource_axef2"]
 script = ExtResource("4_3257m")
 Value = 1
 
-[sub_resource type="Resource" id="Resource_tui4x"]
+[sub_resource type="Resource" id="Resource_ytww0"]
 script = ExtResource("5_m4ypj")
 Value = 1
 
-[sub_resource type="Resource" id="Resource_05jrc"]
+[sub_resource type="Resource" id="Resource_8035b"]
 script = ExtResource("6_vqcyg")
 Value = 1
 
@@ -27,5 +27,5 @@ Stats = NodePath("Stats")
 
 [node name="Stats" type="Node" parent="."]
 script = ExtResource("3_uus8g")
-Attributes = [SubResource("Resource_6xseg"), SubResource("Resource_tui4x"), SubResource("Resource_05jrc")]
+Attributes = [SubResource("Resource_axef2"), SubResource("Resource_ytww0"), SubResource("Resource_8035b")]
 AP = 5

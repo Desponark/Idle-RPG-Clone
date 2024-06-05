@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://brdxej1ucir25"]
 
 [ext_resource type="Texture2D" uid="uid://cjrc02l7icjms" path="res://icon.svg" id="1_v4b1m"]
-[ext_resource type="Script" path="res://Agents/Enemies/Enemy.cs" id="2_e7qlc"]
+[ext_resource type="Script" path="res://Scripts/Enemies/Enemy.cs" id="2_e7qlc"]
 [ext_resource type="Script" path="res://Scripts/Stats.cs" id="3_ie3ln"]
 
 [node name="Enemy" type="Sprite2D" node_paths=PackedStringArray("Stats")]

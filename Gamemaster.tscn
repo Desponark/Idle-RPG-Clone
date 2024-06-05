@@ -1,12 +1,12 @@
 [gd_scene load_steps=8 format=3 uid="uid://buie0mustst4"]
 
 [ext_resource type="Script" path="res://Gamemaster.cs" id="1_p34u7"]
-[ext_resource type="PackedScene" uid="uid://brdxej1ucir25" path="res://Agents/Enemies/Enemy.tscn" id="2_8et8y"]
+[ext_resource type="PackedScene" uid="uid://brdxej1ucir25" path="res://Scenes/Enemies/Enemy.tscn" id="2_8et8y"]
 [ext_resource type="Script" path="res://Scripts/ParallaxBackground.cs" id="3_wvv84"]
 [ext_resource type="Texture2D" uid="uid://baed0cr7fmg6c" path="res://Assets/backgroundColorForest.png" id="4_bym31"]
 [ext_resource type="Texture2D" uid="uid://bjud6pibpcbm4" path="res://Assets/grassMid.png" id="5_7ipdi"]
-[ext_resource type="PackedScene" uid="uid://c5i2km2kcqp8t" path="res://Agents/Player/Player.tscn" id="7_bamax"]
-[ext_resource type="PackedScene" uid="uid://dlfgk8v7lonjc" path="res://HUD.tscn" id="8_j430g"]
+[ext_resource type="PackedScene" uid="uid://c5i2km2kcqp8t" path="res://Scenes/Player/Player.tscn" id="7_bamax"]
+[ext_resource type="PackedScene" uid="uid://dlfgk8v7lonjc" path="res://Scenes/HUD.tscn" id="8_j430g"]
 
 [node name="Gamemaster" type="Node2D" node_paths=PackedStringArray("player", "spawnTimer")]
 script = ExtResource("1_p34u7")
