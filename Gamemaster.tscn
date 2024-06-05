@@ -8,9 +8,10 @@
 [ext_resource type="PackedScene" uid="uid://c5i2km2kcqp8t" path="res://Scenes/Player/Player.tscn" id="7_bamax"]
 [ext_resource type="PackedScene" uid="uid://dlfgk8v7lonjc" path="res://Scenes/HUD/HUD.tscn" id="8_j430g"]
 
-[node name="Gamemaster" type="Node2D" node_paths=PackedStringArray("player", "spawnTimer")]
+[node name="Gamemaster" type="Node2D" node_paths=PackedStringArray("player", "hud", "spawnTimer")]
 script = ExtResource("1_p34u7")
 player = NodePath("Player")
+hud = NodePath("HUD")
 enemyScenes = [ExtResource("2_8et8y")]
 spawnTimer = NodePath("SpawnTimer")
 
@@ -44,8 +45,8 @@ region_rect = Rect2(0, 0, 1152, 70)
 wait_time = 3.0
 autostart = true
 
-[node name="HUD" parent="." node_paths=PackedStringArray("Player") instance=ExtResource("8_j430g")]
-Player = NodePath("../Player")
+[node name="HUD" parent="." node_paths=PackedStringArray("player") instance=ExtResource("8_j430g")]
+player = NodePath("../Player")
 
 [node name="Player" parent="." instance=ExtResource("7_bamax")]
 position = Vector2(104, 515)

@@ -47,16 +47,22 @@ public static class RulesetCombat {
 public static class RulesetStats {
 	private const string FILENAME = "SaveData.tres";
 
-	public static void Save(Player player) {
-		var data = new SaveData(player.Stats);
+	public static void Save(Player player, GameStatistics gameStatistics) {
+		var data = new SaveData(player.Stats, gameStatistics);
 		ResourceSaver.Save(data, FILENAME);
 	}
 
-	public static void Load(Player player) {
+	public static void Load(Player player, GameStatistics gameStatistics) {
 		if (ResourceLoader.Exists(FILENAME)) {
 			var resource = ResourceLoader.Load(FILENAME);
-			if (resource is SaveData persistentData)
-				player.Stats.RP = persistentData.RP;
+			if (resource is SaveData saveData) {
+				player.Stats.RP = saveData.RP;
+
+				gameStatistics.HighestLevelRecord = saveData.HighestLevelRecord;
+				gameStatistics.LongestRunRecord = saveData.LongestRunRecord;
+				gameStatistics.TimeRunningRecord = saveData.TimeRunningRecord;
+				gameStatistics.MonstersKilledRecord = saveData.MonstersKilledRecord;
+			}
 		}
 	}
 

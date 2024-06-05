@@ -5,7 +5,6 @@ using System.Linq;
 
 // Gamemaster
 public partial class Gamemaster : Node2D {
-
 	public State CurrentState = State.None;
 	public enum State {
 		None,
@@ -17,19 +16,22 @@ public partial class Gamemaster : Node2D {
 	[Export]
 	private Player player;
 	[Export]
+	private HUD hud;
+	[Export]
 	private PackedScene[] enemyScenes = new PackedScene[] { };
 	[Export]
 	private Timer spawnTimer;
 	private List<Enemy> enemies = new();
 
-	private HUD hud;
+	private GameStatistics gameStatistics = new();
 
 	public override void _Ready() {
 		spawnTimer.Timeout += Timeout;
-		hud = GetNode<HUD>("HUD");
-		hud.AttributeUp += (Attribute attribute) => { RulesetStats.IncreaseAttribute(attribute, player.Stats); };
 
-		RulesetStats.Load(player);
+		RulesetStats.Load(player, gameStatistics);
+
+		hud.Setup(gameStatistics);
+		hud.AttributeUp += (Attribute attribute) => { RulesetStats.IncreaseAttribute(attribute, player.Stats); };
 	}
 
 	public override void _Input(InputEvent @event) {
@@ -62,10 +64,12 @@ public partial class Gamemaster : Node2D {
 					enemies.Remove(enemy);
 					enemy.QueueFree();
 					CurrentState = State.Running;
+
+					gameStatistics.MonstersKilled++;
 				}
 				if (RulesetCombat.IsDead(player)) {
 					// restart game
-					RulesetStats.Save(player);
+					RulesetStats.Save(player, gameStatistics);
 					GetTree().ReloadCurrentScene();
 				}
 				break;
@@ -73,11 +77,17 @@ public partial class Gamemaster : Node2D {
 				spawnTimer.Paused = true;
 				break;
 		}
+
+		gameStatistics.HighestLevel = player.Stats.Lvl;
+		gameStatistics.TimeRunning += (float)delta;
 	}
 
 	private void AdvanceWorld(double delta) {
-		var movement = new Vector2(100, 0) * (float)delta;
+		var speed = player.Stats.MoveSpd;
+		var movement = new Vector2(speed, 0) * (float)delta;
 		GetTree().CallGroup("Move", "Move", movement);
+
+		gameStatistics.LongestRun += speed * (float)delta;
 	}
 
 	private void Timeout() {
