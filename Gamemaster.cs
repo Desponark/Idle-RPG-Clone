@@ -29,8 +29,8 @@ public partial class Gamemaster : Node2D {
 		hud = GetNode<HUD>("HUD");
 		// TODO: implement attributes properly
 		hud.StrUp += () => { RulesetStats.IncreaseAttribute(player.Stats.Attributes.OfType<Strength>().FirstOrDefault(), player.Stats); };
-		hud.DexUp += () => { RulesetStats.IncreaseAttribute("dex", player.Stats); };
-		hud.IntUp += () => { RulesetStats.IncreaseAttribute("int", player.Stats); };
+		hud.DexUp += () => { RulesetStats.IncreaseAttribute(player.Stats.Attributes.OfType<Dexterity>().FirstOrDefault(), player.Stats); };
+		hud.IntUp += () => { RulesetStats.IncreaseAttribute(player.Stats.Attributes.OfType<Intelligence>().FirstOrDefault(), player.Stats); };
 	}
 
 	public override void _Input(InputEvent @event) {

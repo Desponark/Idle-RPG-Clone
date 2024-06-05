@@ -7,7 +7,7 @@ public static class Ruleset {
 	public static void Attack(Agent attacker, Agent target, double delta) {
 		if (CanAttack(attacker, delta)) {
 
-			TakeDamage(target, RulesetStats.GetAtk(attacker.Stats));
+			TakeDamage(target, attacker.Stats.Atk);
 		}
 	}
 
@@ -20,7 +20,7 @@ public static class Ruleset {
 			attacker.AtkTimer -= (float)delta;
 		}
 		if (attacker.AtkTimer <= 0) {
-			attacker.AtkTimer = RulesetStats.GetAtkSpd(attacker.Stats);
+			attacker.AtkTimer = attacker.Stats.AtkSpd;
 			return true;
 		}
 		return false;
@@ -44,43 +44,14 @@ public static class Ruleset {
 }
 
 public static class RulesetStats {
-	// Stats - Offensive
-	public static float GetAtk(Stats stats) {
-		return stats.Atk + stats.Strength;
-	}
-
-	public static float GetMagAtk(Stats stats) {
-		return stats.MagAtk + stats.Intelligence;
-	}
-
-	public static float GetAtkSpd(Stats stats) {
-		return stats.AtkSpd - (stats.Dexterity / 100);
-	}
-
 	public static bool CanIncreaseAttributes(Stats stats) {
 		return stats.AP > 0;
 	}
 
 	public static void IncreaseAttribute(Attribute attribute, Stats stats) {
 		if (CanIncreaseAttributes(stats)) {
-			attribute.Value += 1;
-		}
-	}
-
-	public static void IncreaseAttribute(string attribute, Stats stats) {
-		if (CanIncreaseAttributes(stats)) {
-			if (attribute == "str") {
-				stats.AP--;
-				stats.Strength += 1;
-			}
-			else if (attribute == "dex") {
-				stats.AP--;
-				stats.Dexterity += 1;
-			}
-			else if (attribute == "int") {
-				stats.AP--;
-				stats.Intelligence += 1;
-			}
+			stats.AP--;
+			attribute.Value++;
 		}
 	}
 

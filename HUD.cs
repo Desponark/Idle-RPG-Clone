@@ -41,8 +41,8 @@ public partial class HUD : CanvasLayer {
 
 		// attributes
 		Assign(strength, player.Stats.Attributes.OfType<Strength>().FirstOrDefault().Value);
-		Assign(dexterity, player.Stats.Dexterity);
-		Assign(intelligence, player.Stats.Intelligence);
+		Assign(dexterity, player.Stats.Attributes.OfType<Dexterity>().FirstOrDefault().Value);
+		Assign(intelligence, player.Stats.Attributes.OfType<Intelligence>().FirstOrDefault().Value);
 
 		// defensive
 		Assign(maxHP, player.Stats.MaxHP);
