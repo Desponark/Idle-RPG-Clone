@@ -3,9 +3,6 @@ using Godot;
 [GlobalClass]
 public partial class Stats : Node {
 	// Attributes
-	public int Strength = 1;
-	public int Dexterity = 1;
-	public int Intelligence = 1;
 	[Export]
 	public Attribute[] Attributes = System.Array.Empty<Attribute>();
 
