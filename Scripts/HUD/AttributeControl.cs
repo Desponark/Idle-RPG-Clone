@@ -18,9 +18,9 @@ public partial class AttributeControl : Control {
 		lbValue.Text = attribute.Value.ToString();
 	}
 
-	public void Update(Stats stats) {
+	public void Update(Agent agent) {
 		lbValue.Text = attribute.Value.ToString();
-		if (RulesetStats.CanIncreaseAttributes(stats)) {
+		if (agent.CanIncreaseAttributes()) {
 			button.Disabled = false;
 		}
 		else {

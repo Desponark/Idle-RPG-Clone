@@ -15,6 +15,6 @@ public partial class FireBolt : Ability {
 		self.Stats.MP -= CastCost;
 
 		var damage = BaseDamage * Level * (1 + (self.Stats.MagAtk / 100));
-		RulesetCombat.TakeDamage(target, damage);
+		target.TakeDamage(damage);
 	}
 }

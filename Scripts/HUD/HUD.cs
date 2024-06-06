@@ -96,7 +96,7 @@ public partial class HUD : CanvasLayer {
 	private void UpdateAttributes() {
 		foreach (var node in attributesContainer.GetChildren()) {
 			if (node is AttributeControl attrCtrl) {
-				attrCtrl.Update(player.Stats);
+				attrCtrl.Update(player);
 			}
 		}
 	}
