@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://c6awp4n258k6s"]
+
+[ext_resource type="Texture2D" uid="uid://bc60cjkcj73ch" path="res://Assets/SlimeGreen/slimeGreen.png" id="1_og2h4"]
+[ext_resource type="Texture2D" uid="uid://b2g53e20gqips" path="res://Assets/SlimeGreen/slimeGreen_walk.png" id="2_4pfwi"]
+[ext_resource type="PackedScene" uid="uid://brdxej1ucir25" path="res://Scenes/Enemies/Enemy.tscn" id="7_43ucr"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dhy3j"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_og2h4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_4pfwi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_og2h4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_4pfwi")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}]
+
+[node name="Slime" instance=ExtResource("7_43ucr")]
+texture = null
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="0"]
+position = Vector2(0, 31.2)
+scale = Vector2(2.255, 2.255)
+sprite_frames = SubResource("SpriteFrames_dhy3j")
+autoplay = "default"
+frame_progress = 0.870381

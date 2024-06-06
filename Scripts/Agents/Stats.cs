@@ -1,10 +1,11 @@
 using Godot;
+using Godot.Collections;
 
 [GlobalClass]
 public partial class Stats : Node {
 	// Attributes
 	[Export]
-	public Attribute[] Attributes = System.Array.Empty<Attribute>();
+	public Array<Attribute> Attributes = new Array<Attribute>();
 
 	// Defensive
 	[Export]

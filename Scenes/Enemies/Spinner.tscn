@@ -1,0 +1,41 @@
+[gd_scene load_steps=8 format=3 uid="uid://b3r7ny5bmwdun"]
+
+[ext_resource type="PackedScene" uid="uid://brdxej1ucir25" path="res://Scenes/Enemies/Enemy.tscn" id="1_qny0v"]
+[ext_resource type="Resource" uid="uid://ds1hu60fuuq52" path="res://Resources/Items/HpPotion2.tres" id="2_52133"]
+[ext_resource type="Texture2D" uid="uid://cssvh8rljauyd" path="res://Assets/Spinner/spinnerHalf.png" id="2_uegu7"]
+[ext_resource type="Texture2D" uid="uid://cv8vam5c6espp" path="res://Assets/Spinner/spinnerHalf_spin.png" id="3_3rlmd"]
+[ext_resource type="Script" path="res://Scripts/Agents/Enemies/Loot.cs" id="3_hgsov"]
+
+[sub_resource type="Resource" id="Resource_mmlnm"]
+script = ExtResource("3_hgsov")
+Items = [ExtResource("2_52133")]
+Dropchance = 10.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_u7s3c"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_uegu7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_3rlmd")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}]
+
+[node name="Spinner" instance=ExtResource("1_qny0v")]
+texture = null
+Loot = [SubResource("Resource_mmlnm")]
+
+[node name="Stats" parent="." index="0"]
+atk = 1.0
+atkSpd = 1.5
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="1"]
+position = Vector2(0, 33.615)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_u7s3c")
+autoplay = "default"
+frame_progress = 0.830988

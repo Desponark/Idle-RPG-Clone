@@ -1,8 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://buie0mustst4"]
+[gd_scene load_steps=10 format=3 uid="uid://buie0mustst4"]
 
 [ext_resource type="Script" path="res://Gamemaster.cs" id="1_p34u7"]
-[ext_resource type="PackedScene" uid="uid://brdxej1ucir25" path="res://Scenes/Enemies/Enemy.tscn" id="2_8et8y"]
+[ext_resource type="PackedScene" uid="uid://c6awp4n258k6s" path="res://Scenes/Enemies/Slime.tscn" id="3_fhe3s"]
+[ext_resource type="PackedScene" uid="uid://b3r7ny5bmwdun" path="res://Scenes/Enemies/Spinner.tscn" id="3_ntlvf"]
 [ext_resource type="Script" path="res://Scripts/ParallaxBackground.cs" id="3_wvv84"]
+[ext_resource type="PackedScene" uid="uid://dmfjq4rbovklq" path="res://Scenes/Enemies/Barnacle.tscn" id="4_bneh3"]
 [ext_resource type="Texture2D" uid="uid://baed0cr7fmg6c" path="res://Assets/backgroundColorForest.png" id="4_bym31"]
 [ext_resource type="Texture2D" uid="uid://bjud6pibpcbm4" path="res://Assets/grassMid.png" id="5_7ipdi"]
 [ext_resource type="PackedScene" uid="uid://c5i2km2kcqp8t" path="res://Scenes/Player/Player.tscn" id="7_bamax"]
@@ -12,7 +14,7 @@
 script = ExtResource("1_p34u7")
 player = NodePath("Player")
 hud = NodePath("HUD")
-enemyScenes = [ExtResource("2_8et8y")]
+enemyScenes = [ExtResource("3_fhe3s"), ExtResource("3_ntlvf"), ExtResource("4_bneh3")]
 spawnTimer = NodePath("SpawnTimer")
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
@@ -30,10 +32,14 @@ centered = false
 region_enabled = true
 region_rect = Rect2(0, 0, 1152, 1024)
 
-[node name="Ground" type="ParallaxLayer" parent="ParallaxBackground"]
+[node name="ParallaxBackground2" type="ParallaxBackground" parent="."]
+layer = 1
+script = ExtResource("3_wvv84")
+
+[node name="Ground" type="ParallaxLayer" parent="ParallaxBackground2"]
 motion_mirroring = Vector2(70, 0)
 
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Ground"]
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground2/Ground"]
 texture_repeat = 2
 position = Vector2(0, 578)
 texture = ExtResource("5_7ipdi")

@@ -1,4 +1,5 @@
 using Godot;
+using Godot.Collections;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,12 +19,14 @@ public partial class Gamemaster : Node2D {
 	[Export]
 	private HUD hud;
 	[Export]
-	private PackedScene[] enemyScenes = new PackedScene[] { };
+	private Array<PackedScene> enemyScenes = new();
 	[Export]
 	private Timer spawnTimer;
 	private List<Enemy> enemies = new();
 
 	private GameStatistics gameStatistics = new();
+
+	private Random random = new();
 
 	public override void _Ready() {
 		spawnTimer.Timeout += Timeout;
@@ -91,7 +94,7 @@ public partial class Gamemaster : Node2D {
 	}
 
 	private void SpawnEnemy() {
-		var enemyScene = enemyScenes[new Random().Next(0, enemyScenes.Count() - 1)];
+		var enemyScene = enemyScenes[random.Next(0, enemyScenes.Count)];
 		var enemy = enemyScene.Instantiate<Enemy>();
 		enemy.Position = new Vector2(1200, 513);
 		AddChild(enemy);

@@ -1,56 +1,16 @@
-[gd_scene load_steps=19 format=3 uid="uid://c5i2km2kcqp8t"]
+[gd_scene load_steps=12 format=3 uid="uid://c5i2km2kcqp8t"]
 
 [ext_resource type="Texture2D" uid="uid://cjrc02l7icjms" path="res://icon.svg" id="1_dmor0"]
 [ext_resource type="Script" path="res://Scripts/Agents/Player/Player.cs" id="2_y4nls"]
-[ext_resource type="PackedScene" uid="uid://4khp85w2htyr" path="res://Scenes/HUD/AbilityButton.tscn" id="3_4tqbe"]
-[ext_resource type="Script" path="res://Scripts/Abilities/FireBolt.cs" id="3_atxml"]
+[ext_resource type="Resource" uid="uid://dj022jqrpqiv" path="res://Resources/Abilities/Firebolt.tres" id="3_4w0is"]
 [ext_resource type="Script" path="res://Scripts/Agents/Stats.cs" id="3_uus8g"]
-[ext_resource type="PackedScene" uid="uid://dgten5paskxdo" path="res://Scenes/HUD/Attribute.tscn" id="6_6nsxb"]
-[ext_resource type="Script" path="res://Scripts/Resources/Attributes/Strength.cs" id="7_17u6q"]
-[ext_resource type="Script" path="res://Scripts/Resources/Attributes/Dexterity.cs" id="8_w8iwd"]
-[ext_resource type="Script" path="res://Scripts/Resources/Attributes/Intelligence.cs" id="9_wu0cj"]
+[ext_resource type="Resource" uid="uid://4gvr6p36fns" path="res://Resources/Abilities/Firebolt2.tres" id="4_ggtup"]
+[ext_resource type="Resource" uid="uid://cl5qc7ncfiqmb" path="res://Resources/Attributes/Strength.tres" id="6_443g1"]
+[ext_resource type="Resource" uid="uid://kd5y1wp65q8h" path="res://Resources/Attributes/Dexterity.tres" id="7_ommu6"]
+[ext_resource type="Resource" uid="uid://bohltyv4jpao8" path="res://Resources/Attributes/Intelligence.tres" id="8_um52b"]
 [ext_resource type="Script" path="res://Scripts/Agents/Player/Inventory.cs" id="10_330sj"]
 [ext_resource type="Resource" uid="uid://boy3v5y0dq4ew" path="res://Resources/Items/HpPotion1.tres" id="11_7340t"]
 [ext_resource type="Resource" uid="uid://ds1hu60fuuq52" path="res://Resources/Items/HpPotion2.tres" id="12_7mk5j"]
-
-[sub_resource type="Resource" id="Resource_ycpf8"]
-script = ExtResource("3_atxml")
-Name = "Firebolt"
-Scene = ExtResource("3_4tqbe")
-CastCost = 20
-BaseDamage = 5
-unlockCost = 1
-
-[sub_resource type="Resource" id="Resource_h820g"]
-script = ExtResource("3_atxml")
-Name = "Firebolt2"
-Scene = ExtResource("3_4tqbe")
-CastCost = 5
-BaseDamage = 2
-unlockCost = 1
-
-[sub_resource type="Resource" id="Resource_5jpck"]
-script = ExtResource("3_atxml")
-Name = "Firebolt3"
-Scene = ExtResource("3_4tqbe")
-CastCost = 40
-BaseDamage = 20
-unlockCost = 1
-
-[sub_resource type="Resource" id="Resource_unasm"]
-script = ExtResource("7_17u6q")
-Value = 1
-Scene = ExtResource("6_6nsxb")
-
-[sub_resource type="Resource" id="Resource_q168o"]
-script = ExtResource("8_w8iwd")
-Value = 1
-Scene = ExtResource("6_6nsxb")
-
-[sub_resource type="Resource" id="Resource_j6ecs"]
-script = ExtResource("9_wu0cj")
-Value = 1
-Scene = ExtResource("6_6nsxb")
 
 [node name="Player" type="Sprite2D" node_paths=PackedStringArray("Inventory", "Stats")]
 scale = Vector2(0.5, 1)
@@ -58,12 +18,12 @@ texture = ExtResource("1_dmor0")
 script = ExtResource("2_y4nls")
 Inventory = NodePath("Inventory")
 Stats = NodePath("Stats")
-Abilities = [SubResource("Resource_ycpf8"), SubResource("Resource_h820g"), SubResource("Resource_5jpck")]
+Abilities = [ExtResource("3_4w0is"), ExtResource("4_ggtup")]
 
 [node name="Stats" type="Node" parent="."]
 unique_name_in_owner = true
 script = ExtResource("3_uus8g")
-Attributes = [SubResource("Resource_unasm"), SubResource("Resource_q168o"), SubResource("Resource_j6ecs")]
+Attributes = [ExtResource("6_443g1"), ExtResource("7_ommu6"), ExtResource("8_um52b")]
 AP = 5
 
 [node name="Inventory" type="Node" parent="."]

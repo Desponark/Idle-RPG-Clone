@@ -1,0 +1,42 @@
+[gd_scene load_steps=9 format=3 uid="uid://dmfjq4rbovklq"]
+
+[ext_resource type="PackedScene" uid="uid://brdxej1ucir25" path="res://Scenes/Enemies/Enemy.tscn" id="1_wgc8v"]
+[ext_resource type="Texture2D" uid="uid://bbq2gbf5we052" path="res://Assets/Barnacle/barnacle.png" id="2_bveso"]
+[ext_resource type="Resource" uid="uid://boy3v5y0dq4ew" path="res://Resources/Items/HpPotion1.tres" id="2_egdpm"]
+[ext_resource type="Texture2D" uid="uid://blys046utppgd" path="res://Assets/Barnacle/barnacle_bite.png" id="3_2ar0i"]
+[ext_resource type="Resource" uid="uid://ds1hu60fuuq52" path="res://Resources/Items/HpPotion2.tres" id="3_tu6wd"]
+[ext_resource type="Script" path="res://Scripts/Agents/Enemies/Loot.cs" id="4_xuhag"]
+
+[sub_resource type="Resource" id="Resource_cubnk"]
+script = ExtResource("4_xuhag")
+Items = [ExtResource("2_egdpm"), ExtResource("3_tu6wd")]
+Dropchance = 5.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_k671s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_bveso")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_2ar0i")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}]
+
+[node name="Barnacle" instance=ExtResource("1_wgc8v")]
+texture = null
+Loot = [SubResource("Resource_cubnk")]
+
+[node name="Stats" parent="." index="0"]
+atk = 10.0
+atkSpd = 5.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="1"]
+position = Vector2(0, 7.415)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_k671s")
+autoplay = "default"
+frame_progress = 0.967671
