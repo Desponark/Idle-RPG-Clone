@@ -10,6 +10,7 @@ public partial class HpPotion : Item {
 
 	public override void Execute(Agent agent) {
 		agent.HealHp(HealAmount);
+
 		Used.Invoke(this);
 	}
 }

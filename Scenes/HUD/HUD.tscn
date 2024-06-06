@@ -43,10 +43,10 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Stats" type="Control" parent="TabContainer"]
-visible = false
 layout_mode = 2
 
 [node name="ExpStats" type="HBoxContainer" parent="TabContainer/Stats"]
+layout_mode = 0
 offset_top = 1.0
 offset_right = 116.0
 offset_bottom = 137.0
@@ -98,6 +98,7 @@ theme_override_font_sizes/font_size = 20
 text = "-1"
 
 [node name="DefensiveStats" type="HBoxContainer" parent="TabContainer/Stats"]
+layout_mode = 0
 offset_left = 156.0
 offset_top = 1.0
 offset_right = 261.0
@@ -176,6 +177,7 @@ theme_override_font_sizes/font_size = 20
 text = "-1"
 
 [node name="UpgradeStats" type="HBoxContainer" parent="TabContainer/Stats"]
+layout_mode = 0
 offset_left = 323.0
 offset_top = 1.0
 offset_right = 463.0
@@ -218,12 +220,14 @@ theme_override_font_sizes/font_size = 20
 text = "-1"
 
 [node name="AttributesContainer" type="VBoxContainer" parent="TabContainer/Stats"]
+layout_mode = 0
 offset_left = 322.505
 offset_top = 108.365
 offset_right = 439.505
 offset_bottom = 148.365
 
 [node name="OffensiveStats" type="HBoxContainer" parent="TabContainer/Stats"]
+layout_mode = 0
 offset_left = 521.81
 offset_top = 1.0
 offset_right = 623.81
@@ -276,6 +280,7 @@ theme_override_font_sizes/font_size = 20
 text = "-1"
 
 [node name="OtherStats" type="HBoxContainer" parent="TabContainer/Stats"]
+layout_mode = 0
 offset_left = 521.81
 offset_top = 170.7
 offset_right = 638.81
@@ -298,6 +303,7 @@ theme_override_font_sizes/font_size = 20
 text = "-1"
 
 [node name="GameStatistics" type="HBoxContainer" parent="TabContainer/Stats"]
+layout_mode = 0
 offset_left = 733.0
 offset_top = 1.0
 offset_right = 974.0
@@ -400,6 +406,7 @@ theme_override_font_sizes/font_size = 20
 text = "-1"
 
 [node name="Inventory" type="Control" parent="TabContainer"]
+visible = false
 layout_mode = 2
 
 [node name="ScrollContainer" type="ScrollContainer" parent="TabContainer/Inventory"]

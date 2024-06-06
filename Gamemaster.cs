@@ -64,6 +64,7 @@ public partial class Gamemaster : Node2D {
 
 				if (RulesetCombat.IsDead(enemy)) {
 					RulesetStats.GainExp(player.Stats, enemy.ExpWorth);
+					enemy.DropLoot(player);
 					enemies.Remove(enemy);
 					enemy.QueueFree();
 					CurrentState = State.Running;

@@ -69,4 +69,4 @@ AP = 5
 [node name="Inventory" type="Node" parent="."]
 unique_name_in_owner = true
 script = ExtResource("10_330sj")
-items = [ExtResource("11_7340t"), ExtResource("12_7mk5j")]
+items = [ExtResource("12_7mk5j"), ExtResource("11_7340t"), ExtResource("11_7340t")]

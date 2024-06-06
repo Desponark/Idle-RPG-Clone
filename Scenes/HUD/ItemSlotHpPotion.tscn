@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://crcx36cbv10js"]
+
+[ext_resource type="PackedScene" uid="uid://bp8cb2bgalrke" path="res://Scenes/HUD/ItemSlot.tscn" id="1_qehdp"]
+[ext_resource type="Script" path="res://Scripts/HUD/ItemSlotHpPotion.cs" id="2_fsvrg"]
+
+[node name="ItemSlot" node_paths=PackedStringArray("lblHealAmount") instance=ExtResource("1_qehdp")]
+script = ExtResource("2_fsvrg")
+lblHealAmount = NodePath("Image/HBoxContainer/VBoxContainer2/HealAmount")
+
+[node name="Label2" type="Label" parent="Image/HBoxContainer/VBoxContainer" index="1"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "Heal"
+
+[node name="HealAmount" type="Label" parent="Image/HBoxContainer/VBoxContainer2" index="1"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 10

@@ -1,6 +1,7 @@
 using Godot;
 using System;
 
+[GlobalClass]
 public partial class ItemSlot : VBoxContainer {
 	[Export]
 	public Button useButton;
@@ -11,7 +12,7 @@ public partial class ItemSlot : VBoxContainer {
 
 	public Item item;
 
-	public void Init(Item item) {
+	public virtual void Init(Item item) {
 		this.item = item;
 
 		lblName.Text = item.Name;

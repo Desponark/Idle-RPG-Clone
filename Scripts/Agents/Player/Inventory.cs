@@ -12,6 +12,7 @@ public partial class Inventory : Node {
 
 	public override void _Ready() {
 		foreach (var item in items) {
+			item.Used -= RemoveItem;
 			item.Used += RemoveItem;
 		}
 	}
@@ -19,6 +20,7 @@ public partial class Inventory : Node {
 	public void AddItem(Item item) {
 		items.Add(item);
 
+		item.Used -= RemoveItem;
 		item.Used += RemoveItem;
 
 		Added.Invoke(item);
