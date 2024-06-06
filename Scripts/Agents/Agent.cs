@@ -1,7 +1,7 @@
 using System;
 using Godot;
 
-public partial class Agent : Sprite2D {
+public partial class Agent : Node2D {
 	[Export]
 	public Stats Stats;
 

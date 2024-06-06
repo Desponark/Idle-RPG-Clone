@@ -25,7 +25,6 @@ animations = [{
 }]
 
 [node name="Slime" instance=ExtResource("7_43ucr")]
-texture = null
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="0"]
 position = Vector2(0, 31.2)
@@ -33,3 +32,6 @@ scale = Vector2(2.255, 2.255)
 sprite_frames = SubResource("SpriteFrames_dhy3j")
 autoplay = "default"
 frame_progress = 0.870381
+
+[node name="Enemy" parent="." index="1"]
+texture = null

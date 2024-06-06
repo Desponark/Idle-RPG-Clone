@@ -26,12 +26,10 @@ animations = [{
 }]
 
 [node name="Spinner" instance=ExtResource("1_qny0v")]
-texture = null
 Loot = [SubResource("Resource_mmlnm")]
 
-[node name="Stats" parent="." index="0"]
-atk = 1.0
-atkSpd = 1.5
+[node name="Enemy" parent="." index="0"]
+texture = null
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="1"]
 position = Vector2(0, 33.615)
@@ -39,3 +37,7 @@ scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_u7s3c")
 autoplay = "default"
 frame_progress = 0.830988
+
+[node name="Stats" parent="." index="2"]
+atk = 1.0
+atkSpd = 1.5

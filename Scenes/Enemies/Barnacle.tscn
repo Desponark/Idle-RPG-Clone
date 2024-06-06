@@ -27,12 +27,10 @@ animations = [{
 }]
 
 [node name="Barnacle" instance=ExtResource("1_wgc8v")]
-texture = null
 Loot = [SubResource("Resource_cubnk")]
 
-[node name="Stats" parent="." index="0"]
-atk = 10.0
-atkSpd = 5.0
+[node name="Enemy" parent="." index="0"]
+texture = null
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="1"]
 position = Vector2(0, 7.415)
@@ -40,3 +38,7 @@ scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_k671s")
 autoplay = "default"
 frame_progress = 0.967671
+
+[node name="Stats" parent="." index="2"]
+atk = 10.0
+atkSpd = 5.0
