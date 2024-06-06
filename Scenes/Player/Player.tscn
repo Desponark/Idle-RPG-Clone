@@ -4,21 +4,23 @@
 [ext_resource type="Script" path="res://Scripts/Agents/Player/Player.cs" id="2_y4nls"]
 [ext_resource type="Resource" uid="uid://dj022jqrpqiv" path="res://Resources/Abilities/Firebolt.tres" id="3_4w0is"]
 [ext_resource type="Script" path="res://Scripts/Agents/Stats.cs" id="3_uus8g"]
-[ext_resource type="Resource" uid="uid://4gvr6p36fns" path="res://Resources/Abilities/Firebolt2.tres" id="4_ggtup"]
 [ext_resource type="Resource" uid="uid://cl5qc7ncfiqmb" path="res://Resources/Attributes/Strength.tres" id="6_443g1"]
 [ext_resource type="Resource" uid="uid://kd5y1wp65q8h" path="res://Resources/Attributes/Dexterity.tres" id="7_ommu6"]
 [ext_resource type="Resource" uid="uid://bohltyv4jpao8" path="res://Resources/Attributes/Intelligence.tres" id="8_um52b"]
 [ext_resource type="Script" path="res://Scripts/Agents/Player/Inventory.cs" id="10_330sj"]
 [ext_resource type="Resource" uid="uid://boy3v5y0dq4ew" path="res://Resources/Items/HpPotion1.tres" id="11_7340t"]
 [ext_resource type="Resource" uid="uid://ds1hu60fuuq52" path="res://Resources/Items/HpPotion2.tres" id="12_7mk5j"]
+[ext_resource type="PackedScene" uid="uid://chun8qhnwv42k" path="res://Scenes/HUD/PointsBar.tscn" id="12_md3qf"]
 
-[node name="Player" type="Sprite2D" node_paths=PackedStringArray("Inventory", "Stats")]
-scale = Vector2(0.5, 1)
-texture = ExtResource("1_dmor0")
+[node name="Node2D" type="Node2D" node_paths=PackedStringArray("Inventory", "Stats")]
 script = ExtResource("2_y4nls")
 Inventory = NodePath("Inventory")
 Stats = NodePath("Stats")
-Abilities = [ExtResource("3_4w0is"), ExtResource("4_ggtup")]
+Abilities = [ExtResource("3_4w0is"), ExtResource("3_4w0is")]
+
+[node name="Player" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 1)
+texture = ExtResource("1_dmor0")
 
 [node name="Stats" type="Node" parent="."]
 unique_name_in_owner = true
@@ -30,3 +32,6 @@ AP = 5
 unique_name_in_owner = true
 script = ExtResource("10_330sj")
 items = [ExtResource("12_7mk5j"), ExtResource("11_7340t"), ExtResource("11_7340t")]
+
+[node name="PointsBar" parent="." node_paths=PackedStringArray("stats") instance=ExtResource("12_md3qf")]
+stats = NodePath("../Stats")
