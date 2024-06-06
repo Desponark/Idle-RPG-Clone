@@ -15,4 +15,12 @@ public partial class AbilityButton : VBoxContainer {
 	public Label LblDamage;
 	[Export]
 	public Label LblUpgradeCost;
+
+	public void Display(Ability ability) {
+		LblName.Text = ability.Name;
+		LblLevel.Text = ability.Level.ToString();
+		LblCost.Text = ability.CastCost.ToString();
+		LblDamage.Text = ability.BaseDamage.ToString();
+		LblUpgradeCost.Text = ability.UpgradeCost.ToString();
+	}
 }

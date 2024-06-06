@@ -1,42 +1,46 @@
-[gd_scene load_steps=13 format=3 uid="uid://c5i2km2kcqp8t"]
+[gd_scene load_steps=14 format=3 uid="uid://c5i2km2kcqp8t"]
 
 [ext_resource type="Texture2D" uid="uid://cjrc02l7icjms" path="res://icon.svg" id="1_dmor0"]
 [ext_resource type="Script" path="res://Scripts/Agents/Player/Player.cs" id="2_y4nls"]
-[ext_resource type="PackedScene" uid="uid://4khp85w2htyr" path="res://Scenes/Abilities/AbilityButton.tscn" id="3_a25kb"]
+[ext_resource type="PackedScene" uid="uid://4khp85w2htyr" path="res://Scenes/HUD/AbilityButton.tscn" id="3_4tqbe"]
 [ext_resource type="Script" path="res://Scripts/Abilities/FireBolt.cs" id="3_atxml"]
 [ext_resource type="Script" path="res://Scripts/Agents/Stats.cs" id="3_uus8g"]
-[ext_resource type="Script" path="res://Resources/Attributes/Strength.cs" id="4_3257m"]
-[ext_resource type="Script" path="res://Resources/Attributes/Dexterity.cs" id="5_m4ypj"]
-[ext_resource type="Script" path="res://Resources/Attributes/Intelligence.cs" id="6_vqcyg"]
+[ext_resource type="PackedScene" uid="uid://dgten5paskxdo" path="res://Scenes/HUD/Attribute.tscn" id="6_6nsxb"]
+[ext_resource type="Script" path="res://Resources/Attributes/Strength.cs" id="6_s5r84"]
+[ext_resource type="Script" path="res://Resources/Attributes/Dexterity.cs" id="8_ffr7k"]
+[ext_resource type="Script" path="res://Resources/Attributes/Intelligence.cs" id="9_k21uf"]
 
-[sub_resource type="Resource" id="Resource_6q4w0"]
+[sub_resource type="Resource" id="Resource_ycpf8"]
 script = ExtResource("3_atxml")
-Name = "FireBolt"
+Name = ""
+Scene = ExtResource("3_4tqbe")
 CastCost = 20
 BaseDamage = 5
 unlockCost = 1
-scene = ExtResource("3_a25kb")
 
-[sub_resource type="Resource" id="Resource_axef2"]
-script = ExtResource("4_3257m")
+[sub_resource type="Resource" id="Resource_pdcb6"]
+script = ExtResource("6_s5r84")
 Value = 1
+Scene = ExtResource("6_6nsxb")
 
-[sub_resource type="Resource" id="Resource_ytww0"]
-script = ExtResource("5_m4ypj")
+[sub_resource type="Resource" id="Resource_r50uv"]
+script = ExtResource("8_ffr7k")
 Value = 1
+Scene = ExtResource("6_6nsxb")
 
-[sub_resource type="Resource" id="Resource_8035b"]
-script = ExtResource("6_vqcyg")
+[sub_resource type="Resource" id="Resource_xw0es"]
+script = ExtResource("9_k21uf")
 Value = 1
+Scene = ExtResource("6_6nsxb")
 
 [node name="Player" type="Sprite2D" node_paths=PackedStringArray("Stats")]
 scale = Vector2(0.5, 1)
 texture = ExtResource("1_dmor0")
 script = ExtResource("2_y4nls")
 Stats = NodePath("Stats")
-Abilities = [SubResource("Resource_6q4w0")]
+Abilities = [SubResource("Resource_ycpf8")]
 
 [node name="Stats" type="Node" parent="."]
 script = ExtResource("3_uus8g")
-Attributes = [SubResource("Resource_axef2"), SubResource("Resource_ytww0"), SubResource("Resource_8035b")]
+Attributes = [SubResource("Resource_pdcb6"), SubResource("Resource_r50uv"), SubResource("Resource_xw0es")]
 AP = 5

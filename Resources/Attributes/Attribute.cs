@@ -1,9 +1,13 @@
 using Godot;
 
 [GlobalClass]
-public partial class Attribute : Resource {
+public abstract partial class Attribute : Resource {
 	[Export]
 	public int Value = 1;
+
+	[Export]
+	public PackedScene Scene = ResourceLoader.Load<PackedScene>("res://Scenes/HUD/Attribute.tscn");
+	// public PackedScene Scene;
 
 	public virtual float ModMaxHp(float retVal) {
 		return retVal;

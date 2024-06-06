@@ -1,12 +1,12 @@
 [gd_scene load_steps=3 format=3 uid="uid://4khp85w2htyr"]
 
-[ext_resource type="Script" path="res://Scripts/HUD/AbilityButton.cs" id="1_dvfs3"]
-[ext_resource type="Texture2D" uid="uid://cpmpq6q4chewe" path="res://Assets/fireball.png" id="1_gm410"]
+[ext_resource type="Script" path="res://Scripts/HUD/AbilityButton.cs" id="1_xjlkv"]
+[ext_resource type="Texture2D" uid="uid://cpmpq6q4chewe" path="res://Assets/fireball.png" id="2_v8dr6"]
 
-[node name="VBoxContainer" type="VBoxContainer" node_paths=PackedStringArray("UseButton", "UpgradeButton", "LblName", "LblLevel", "LblCost", "LblDamage", "LblUpgradeCost")]
+[node name="AbilityButton" type="VBoxContainer" node_paths=PackedStringArray("UseButton", "UpgradeButton", "LblName", "LblLevel", "LblCost", "LblDamage", "LblUpgradeCost")]
 offset_right = 40.0
 offset_bottom = 40.0
-script = ExtResource("1_dvfs3")
+script = ExtResource("1_xjlkv")
 UseButton = NodePath("Ability")
 UpgradeButton = NodePath("Upgrade")
 LblName = NodePath("Ability/HBoxContainer5/VBoxContainer2/Name")
@@ -19,7 +19,7 @@ LblUpgradeCost = NodePath("Ability/HBoxContainer5/VBoxContainer2/UpgradeCost")
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 disabled = true
-texture_normal = ExtResource("1_gm410")
+texture_normal = ExtResource("2_v8dr6")
 ignore_texture_size = true
 stretch_mode = 0
 

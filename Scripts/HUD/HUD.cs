@@ -25,8 +25,6 @@ public partial class HUD : CanvasLayer {
 	private Label highestLevelRecord, longestRunRecord, timeRunningRecord, monstersKilledRecord;
 
 	[Export]
-	private PackedScene attributeControlScene;
-	[Export]
 	private Node attributesContainer;
 
 	[Export]
@@ -44,26 +42,20 @@ public partial class HUD : CanvasLayer {
 
 	private void PopulateAttributes() {
 		foreach (var attribute in player.Stats.Attributes) {
-			var attrCtrl = attributeControlScene.Instantiate<AttributeControl>();
-			attrCtrl.LbName.Text = attribute.GetType().Name;
-			attrCtrl.Attribute = attribute;
-			attrCtrl.LbValue.Text = attribute.Value.ToString();
-			attrCtrl.Button.Pressed += () => { AttributeUp.Invoke(attribute); };
+			var attrCtrl = attribute.Scene.Instantiate<AttributeControl>();
 			attributesContainer.AddChild(attrCtrl);
+			attrCtrl.Display(attribute);
+			attrCtrl.Button.Pressed += () => { AttributeUp.Invoke(attribute); };
 		}
 	}
 
 	private void PopulateAbilities() {
 		foreach (var ability in player.Abilities) {
-			var abilityBtn = ability.scene.Instantiate<AbilityButton>();
-			abilityBtn.LblName.Text = ability.Name;
-			abilityBtn.LblLevel.Text = ability.Level.ToString();
-			abilityBtn.LblDamage.Text = ability.BaseDamage.ToString();
-			abilityBtn.LblCost.Text = ability.CastCost.ToString();
-			abilityBtn.LblUpgradeCost.Text = ability.UpgradeCost.ToString();
+			var abilityBtn = ability.Scene.Instantiate<AbilityButton>();
+			abilityContainer.AddChild(abilityBtn);
+			abilityBtn.Display(ability);
 			abilityBtn.UseButton.Pressed += () => { };
 			abilityBtn.UpgradeButton.Pressed += () => { };
-			abilityContainer.AddChild(abilityBtn);
 		}
 	}
 

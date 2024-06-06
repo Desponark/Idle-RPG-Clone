@@ -4,6 +4,8 @@ using Godot;
 public abstract partial class Ability : Resource {
 	[Export]
 	public string Name;
+	[Export]
+	public PackedScene Scene = ResourceLoader.Load<PackedScene>("res://Scenes/HUD/AbilityButton.tscn");
 
 	public int Level = 0;
 	[Export]
@@ -13,8 +15,6 @@ public abstract partial class Ability : Resource {
 	[Export]
 	private int unlockCost = 1;
 	public int UpgradeCost { get => unlockCost + Level; }
-	[Export]
-	public PackedScene scene = ResourceLoader.Load<PackedScene>("res://Scenes/Abilities/AbilityButton.tscn");
 
 	public bool IsUnlocked() {
 		return Level > 0;

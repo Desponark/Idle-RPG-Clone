@@ -1,7 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://dlfgk8v7lonjc"]
+[gd_scene load_steps=2 format=3 uid="uid://dlfgk8v7lonjc"]
 
 [ext_resource type="Script" path="res://Scripts/HUD/HUD.cs" id="1_echo6"]
-[ext_resource type="PackedScene" uid="uid://dgten5paskxdo" path="res://Scenes/HUD/Attribute.tscn" id="2_8qxh1"]
 
 [node name="HUD" type="CanvasLayer" node_paths=PackedStringArray("maxHP", "hp", "maxSP", "sp", "maxMP", "mp", "atk", "magAtk", "acc", "atkSpd", "moveSpd", "lvl", "exp", "expTotal", "expReq", "ap", "rp", "rpPotential", "highestLevel", "longestRun", "timeRunning", "monstersKilled", "highestLevelRecord", "longestRunRecord", "timeRunningRecord", "monstersKilledRecord", "attributesContainer", "abilityContainer")]
 script = ExtResource("1_echo6")
@@ -31,7 +30,6 @@ highestLevelRecord = NodePath("GameStatistics/VBoxContainer2/HighestLevelRecord"
 longestRunRecord = NodePath("GameStatistics/VBoxContainer2/LongestRunRecord")
 timeRunningRecord = NodePath("GameStatistics/VBoxContainer2/TimeRunningRecord")
 monstersKilledRecord = NodePath("GameStatistics/VBoxContainer2/MonstersKilledRecord")
-attributeControlScene = ExtResource("2_8qxh1")
 attributesContainer = NodePath("AttributesContainer")
 abilityContainer = NodePath("ScrollContainer/AbilityContainer")
 
