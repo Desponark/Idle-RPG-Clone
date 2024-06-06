@@ -2,392 +2,430 @@
 
 [ext_resource type="Script" path="res://Scripts/HUD/HUD.cs" id="1_echo6"]
 
-[node name="HUD" type="CanvasLayer" node_paths=PackedStringArray("maxHP", "hp", "maxSP", "sp", "maxMP", "mp", "atk", "magAtk", "acc", "atkSpd", "moveSpd", "lvl", "exp", "expTotal", "expReq", "ap", "rp", "rpPotential", "highestLevel", "longestRun", "timeRunning", "monstersKilled", "highestLevelRecord", "longestRunRecord", "timeRunningRecord", "monstersKilledRecord", "attributesContainer", "abilityContainer")]
+[node name="HUD" type="CanvasLayer" node_paths=PackedStringArray("maxHP", "hp", "maxSP", "sp", "maxMP", "mp", "atk", "magAtk", "acc", "atkSpd", "moveSpd", "lvl", "exp", "expTotal", "expReq", "ap", "rp", "rpPotential", "highestLevel", "longestRun", "timeRunning", "monstersKilled", "highestLevelRecord", "longestRunRecord", "timeRunningRecord", "monstersKilledRecord", "attributesContainer", "abilityContainer", "inventoryContainer")]
 script = ExtResource("1_echo6")
-maxHP = NodePath("DefensiveStats/VBoxContainer2/MaxHP")
-hp = NodePath("DefensiveStats/VBoxContainer2/HP")
-maxSP = NodePath("DefensiveStats/VBoxContainer2/MaxSP")
-sp = NodePath("DefensiveStats/VBoxContainer2/SP")
-maxMP = NodePath("DefensiveStats/VBoxContainer2/MaxMP")
-mp = NodePath("DefensiveStats/VBoxContainer2/MP")
-atk = NodePath("OffensiveStats/VBoxContainer2/Atk")
-magAtk = NodePath("OffensiveStats/VBoxContainer2/MagAtk")
-acc = NodePath("OffensiveStats/VBoxContainer2/Acc")
-atkSpd = NodePath("OffensiveStats/VBoxContainer2/AtkSpd")
-moveSpd = NodePath("OtherStats/VBoxContainer2/MoveSpd")
-lvl = NodePath("ExpStats/VBoxContainer2/Lvl")
-exp = NodePath("ExpStats/VBoxContainer2/Exp")
-expTotal = NodePath("ExpStats/VBoxContainer2/ExpTotal")
-expReq = NodePath("ExpStats/VBoxContainer2/Exp")
-ap = NodePath("UpgradeStats/VBoxContainer2/AP")
-rp = NodePath("UpgradeStats/VBoxContainer2/RP")
-rpPotential = NodePath("UpgradeStats/VBoxContainer2/RPPotential")
-highestLevel = NodePath("GameStatistics/VBoxContainer2/HighestLevel")
-longestRun = NodePath("GameStatistics/VBoxContainer2/LongestRun")
-timeRunning = NodePath("GameStatistics/VBoxContainer2/TimeRunning")
-monstersKilled = NodePath("GameStatistics/VBoxContainer2/MonstersKilled")
-highestLevelRecord = NodePath("GameStatistics/VBoxContainer2/HighestLevelRecord")
-longestRunRecord = NodePath("GameStatistics/VBoxContainer2/LongestRunRecord")
-timeRunningRecord = NodePath("GameStatistics/VBoxContainer2/TimeRunningRecord")
-monstersKilledRecord = NodePath("GameStatistics/VBoxContainer2/MonstersKilledRecord")
-attributesContainer = NodePath("AttributesContainer")
-abilityContainer = NodePath("ScrollContainer/AbilityContainer")
+maxHP = NodePath("TabContainer/Stats/DefensiveStats/VBoxContainer2/MaxHP")
+hp = NodePath("TabContainer/Stats/DefensiveStats/VBoxContainer2/HP")
+maxSP = NodePath("TabContainer/Stats/DefensiveStats/VBoxContainer2/MaxSP")
+sp = NodePath("TabContainer/Stats/DefensiveStats/VBoxContainer2/SP")
+maxMP = NodePath("TabContainer/Stats/DefensiveStats/VBoxContainer2/MaxMP")
+mp = NodePath("TabContainer/Stats/DefensiveStats/VBoxContainer2/MP")
+atk = NodePath("TabContainer/Stats/OffensiveStats/VBoxContainer2/Atk")
+magAtk = NodePath("TabContainer/Stats/OffensiveStats/VBoxContainer2/MagAtk")
+acc = NodePath("TabContainer/Stats/OffensiveStats/VBoxContainer2/Acc")
+atkSpd = NodePath("TabContainer/Stats/OffensiveStats/VBoxContainer2/AtkSpd")
+moveSpd = NodePath("TabContainer/Stats/OtherStats/VBoxContainer2/MoveSpd")
+lvl = NodePath("TabContainer/Stats/ExpStats/VBoxContainer2/Lvl")
+exp = NodePath("TabContainer/Stats/ExpStats/VBoxContainer2/Exp")
+expTotal = NodePath("TabContainer/Stats/ExpStats/VBoxContainer2/ExpTotal")
+expReq = NodePath("TabContainer/Stats/ExpStats/VBoxContainer2/Exp")
+ap = NodePath("TabContainer/Stats/UpgradeStats/VBoxContainer2/AP")
+rp = NodePath("TabContainer/Stats/UpgradeStats/VBoxContainer2/RP")
+rpPotential = NodePath("TabContainer/Stats/UpgradeStats/VBoxContainer2/RPPotential")
+highestLevel = NodePath("TabContainer/Stats/GameStatistics/VBoxContainer2/HighestLevel")
+longestRun = NodePath("TabContainer/Stats/GameStatistics/VBoxContainer2/LongestRun")
+timeRunning = NodePath("TabContainer/Stats/GameStatistics/VBoxContainer2/TimeRunning")
+monstersKilled = NodePath("TabContainer/Stats/GameStatistics/VBoxContainer2/MonstersKilled")
+highestLevelRecord = NodePath("TabContainer/Stats/GameStatistics/VBoxContainer2/HighestLevelRecord")
+longestRunRecord = NodePath("TabContainer/Stats/GameStatistics/VBoxContainer2/LongestRunRecord")
+timeRunningRecord = NodePath("TabContainer/Stats/GameStatistics/VBoxContainer2/TimeRunningRecord")
+monstersKilledRecord = NodePath("TabContainer/Stats/GameStatistics/VBoxContainer2/MonstersKilledRecord")
+attributesContainer = NodePath("TabContainer/Stats/AttributesContainer")
+abilityContainer = NodePath("TabContainer/Abilities/ScrollContainer/AbilityContainer")
+inventoryContainer = NodePath("TabContainer/Inventory/ScrollContainer/InventoryContainer")
 
-[node name="ExpStats" type="HBoxContainer" parent="."]
-offset_right = 116.0
-offset_bottom = 136.0
+[node name="TabContainer" type="TabContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -278.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ExpStats"]
+[node name="Stats" type="Control" parent="TabContainer"]
+visible = false
 layout_mode = 2
 
-[node name="Label" type="Label" parent="ExpStats/VBoxContainer"]
+[node name="ExpStats" type="HBoxContainer" parent="TabContainer/Stats"]
+offset_top = 1.0
+offset_right = 116.0
+offset_bottom = 137.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Stats/ExpStats"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="TabContainer/Stats/ExpStats/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
 text = "Level:"
 
-[node name="Label2" type="Label" parent="ExpStats/VBoxContainer"]
+[node name="Label2" type="Label" parent="TabContainer/Stats/ExpStats/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
 text = "Exp:"
 
-[node name="Label3" type="Label" parent="ExpStats/VBoxContainer"]
+[node name="Label3" type="Label" parent="TabContainer/Stats/ExpStats/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
 text = "Exp Total:"
 
-[node name="Label4" type="Label" parent="ExpStats/VBoxContainer"]
+[node name="Label4" type="Label" parent="TabContainer/Stats/ExpStats/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
 text = "Exp Req:"
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="ExpStats"]
+[node name="VBoxContainer2" type="VBoxContainer" parent="TabContainer/Stats/ExpStats"]
 layout_mode = 2
 
-[node name="Lvl" type="Label" parent="ExpStats/VBoxContainer2"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 20
-text = "-1"
-
-[node name="Exp" type="Label" parent="ExpStats/VBoxContainer2"]
+[node name="Lvl" type="Label" parent="TabContainer/Stats/ExpStats/VBoxContainer2"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
 text = "-1"
 
-[node name="ExpTotal" type="Label" parent="ExpStats/VBoxContainer2"]
+[node name="Exp" type="Label" parent="TabContainer/Stats/ExpStats/VBoxContainer2"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
 text = "-1"
 
-[node name="ExpReq" type="Label" parent="ExpStats/VBoxContainer2"]
+[node name="ExpTotal" type="Label" parent="TabContainer/Stats/ExpStats/VBoxContainer2"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
 text = "-1"
 
-[node name="DefensiveStats" type="HBoxContainer" parent="."]
+[node name="ExpReq" type="Label" parent="TabContainer/Stats/ExpStats/VBoxContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "-1"
+
+[node name="DefensiveStats" type="HBoxContainer" parent="TabContainer/Stats"]
 offset_left = 156.0
+offset_top = 1.0
 offset_right = 261.0
-offset_bottom = 206.0
+offset_bottom = 207.0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="DefensiveStats"]
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Stats/DefensiveStats"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="DefensiveStats/VBoxContainer"]
+[node name="Label" type="Label" parent="TabContainer/Stats/DefensiveStats/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
 text = "MaxHP:"
 
-[node name="Label2" type="Label" parent="DefensiveStats/VBoxContainer"]
+[node name="Label2" type="Label" parent="TabContainer/Stats/DefensiveStats/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
 text = "HP:"
 
-[node name="Label3" type="Label" parent="DefensiveStats/VBoxContainer"]
+[node name="Label3" type="Label" parent="TabContainer/Stats/DefensiveStats/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
 text = "Max SP:"
 
-[node name="Label4" type="Label" parent="DefensiveStats/VBoxContainer"]
+[node name="Label4" type="Label" parent="TabContainer/Stats/DefensiveStats/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
 text = "SP:"
 
-[node name="Label5" type="Label" parent="DefensiveStats/VBoxContainer"]
+[node name="Label5" type="Label" parent="TabContainer/Stats/DefensiveStats/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
 text = "Max MP:"
 
-[node name="Label6" type="Label" parent="DefensiveStats/VBoxContainer"]
+[node name="Label6" type="Label" parent="TabContainer/Stats/DefensiveStats/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
 text = "MP"
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="DefensiveStats"]
+[node name="VBoxContainer2" type="VBoxContainer" parent="TabContainer/Stats/DefensiveStats"]
 layout_mode = 2
 
-[node name="MaxHP" type="Label" parent="DefensiveStats/VBoxContainer2"]
+[node name="MaxHP" type="Label" parent="TabContainer/Stats/DefensiveStats/VBoxContainer2"]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
 text = "-1"
 
-[node name="HP" type="Label" parent="DefensiveStats/VBoxContainer2"]
+[node name="HP" type="Label" parent="TabContainer/Stats/DefensiveStats/VBoxContainer2"]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
 text = "-1"
 
-[node name="MaxSP" type="Label" parent="DefensiveStats/VBoxContainer2"]
+[node name="MaxSP" type="Label" parent="TabContainer/Stats/DefensiveStats/VBoxContainer2"]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
 text = "-1"
 
-[node name="SP" type="Label" parent="DefensiveStats/VBoxContainer2"]
+[node name="SP" type="Label" parent="TabContainer/Stats/DefensiveStats/VBoxContainer2"]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
 text = "-1"
 
-[node name="MaxMP" type="Label" parent="DefensiveStats/VBoxContainer2"]
+[node name="MaxMP" type="Label" parent="TabContainer/Stats/DefensiveStats/VBoxContainer2"]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
 text = "-1"
 
-[node name="MP" type="Label" parent="DefensiveStats/VBoxContainer2"]
+[node name="MP" type="Label" parent="TabContainer/Stats/DefensiveStats/VBoxContainer2"]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
 text = "-1"
 
-[node name="UpgradeStats" type="HBoxContainer" parent="."]
+[node name="UpgradeStats" type="HBoxContainer" parent="TabContainer/Stats"]
 offset_left = 323.0
+offset_top = 1.0
 offset_right = 463.0
-offset_bottom = 101.0
+offset_bottom = 102.0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="UpgradeStats"]
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Stats/UpgradeStats"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="UpgradeStats/VBoxContainer"]
+[node name="Label" type="Label" parent="TabContainer/Stats/UpgradeStats/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
 text = "AP:"
 
-[node name="Label2" type="Label" parent="UpgradeStats/VBoxContainer"]
+[node name="Label2" type="Label" parent="TabContainer/Stats/UpgradeStats/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
 text = "RP:"
 
-[node name="Label3" type="Label" parent="UpgradeStats/VBoxContainer"]
+[node name="Label3" type="Label" parent="TabContainer/Stats/UpgradeStats/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
 text = "RPPotential:"
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="UpgradeStats"]
+[node name="VBoxContainer2" type="VBoxContainer" parent="TabContainer/Stats/UpgradeStats"]
 layout_mode = 2
 
-[node name="AP" type="Label" parent="UpgradeStats/VBoxContainer2"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 20
-text = "-1"
-
-[node name="RP" type="Label" parent="UpgradeStats/VBoxContainer2"]
+[node name="AP" type="Label" parent="TabContainer/Stats/UpgradeStats/VBoxContainer2"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
 text = "-1"
 
-[node name="RPPotential" type="Label" parent="UpgradeStats/VBoxContainer2"]
+[node name="RP" type="Label" parent="TabContainer/Stats/UpgradeStats/VBoxContainer2"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
 text = "-1"
 
-[node name="AttributesContainer" type="VBoxContainer" parent="."]
+[node name="RPPotential" type="Label" parent="TabContainer/Stats/UpgradeStats/VBoxContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "-1"
+
+[node name="AttributesContainer" type="VBoxContainer" parent="TabContainer/Stats"]
 offset_left = 322.505
-offset_top = 107.365
+offset_top = 108.365
 offset_right = 439.505
-offset_bottom = 147.365
+offset_bottom = 148.365
 
-[node name="OffensiveStats" type="HBoxContainer" parent="."]
+[node name="OffensiveStats" type="HBoxContainer" parent="TabContainer/Stats"]
 offset_left = 521.81
+offset_top = 1.0
 offset_right = 623.81
-offset_bottom = 136.0
+offset_bottom = 137.0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="OffensiveStats"]
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Stats/OffensiveStats"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="OffensiveStats/VBoxContainer"]
+[node name="Label" type="Label" parent="TabContainer/Stats/OffensiveStats/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
 text = "ATK:"
 
-[node name="Label2" type="Label" parent="OffensiveStats/VBoxContainer"]
+[node name="Label2" type="Label" parent="TabContainer/Stats/OffensiveStats/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
 text = "MagAtk:"
 
-[node name="Label3" type="Label" parent="OffensiveStats/VBoxContainer"]
+[node name="Label3" type="Label" parent="TabContainer/Stats/OffensiveStats/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
 text = "Acc:"
 
-[node name="Label4" type="Label" parent="OffensiveStats/VBoxContainer"]
+[node name="Label4" type="Label" parent="TabContainer/Stats/OffensiveStats/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
 text = "AtkSpd:"
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="OffensiveStats"]
+[node name="VBoxContainer2" type="VBoxContainer" parent="TabContainer/Stats/OffensiveStats"]
 layout_mode = 2
 
-[node name="Atk" type="Label" parent="OffensiveStats/VBoxContainer2"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 20
-text = "-1"
-
-[node name="MagAtk" type="Label" parent="OffensiveStats/VBoxContainer2"]
+[node name="Atk" type="Label" parent="TabContainer/Stats/OffensiveStats/VBoxContainer2"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
 text = "-1"
 
-[node name="Acc" type="Label" parent="OffensiveStats/VBoxContainer2"]
+[node name="MagAtk" type="Label" parent="TabContainer/Stats/OffensiveStats/VBoxContainer2"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
 text = "-1"
 
-[node name="AtkSpd" type="Label" parent="OffensiveStats/VBoxContainer2"]
+[node name="Acc" type="Label" parent="TabContainer/Stats/OffensiveStats/VBoxContainer2"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
 text = "-1"
 
-[node name="OtherStats" type="HBoxContainer" parent="."]
+[node name="AtkSpd" type="Label" parent="TabContainer/Stats/OffensiveStats/VBoxContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "-1"
+
+[node name="OtherStats" type="HBoxContainer" parent="TabContainer/Stats"]
 offset_left = 521.81
-offset_top = 169.7
+offset_top = 170.7
 offset_right = 638.81
-offset_bottom = 209.7
+offset_bottom = 210.7
 
-[node name="VBoxContainer" type="VBoxContainer" parent="OtherStats"]
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Stats/OtherStats"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="OtherStats/VBoxContainer"]
+[node name="Label" type="Label" parent="TabContainer/Stats/OtherStats/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
 text = "MoveSpd:"
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="OtherStats"]
+[node name="VBoxContainer2" type="VBoxContainer" parent="TabContainer/Stats/OtherStats"]
 layout_mode = 2
 
-[node name="MoveSpd" type="Label" parent="OtherStats/VBoxContainer2"]
+[node name="MoveSpd" type="Label" parent="TabContainer/Stats/OtherStats/VBoxContainer2"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
 text = "-1"
 
-[node name="GameStatistics" type="HBoxContainer" parent="."]
+[node name="GameStatistics" type="HBoxContainer" parent="TabContainer/Stats"]
 offset_left = 733.0
+offset_top = 1.0
 offset_right = 974.0
-offset_bottom = 311.0
+offset_bottom = 312.0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="GameStatistics"]
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Stats/GameStatistics"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="GameStatistics/VBoxContainer"]
+[node name="Label" type="Label" parent="TabContainer/Stats/GameStatistics/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
 text = "HighestLevel:"
 
-[node name="Label2" type="Label" parent="GameStatistics/VBoxContainer"]
+[node name="Label2" type="Label" parent="TabContainer/Stats/GameStatistics/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
 text = "LongestRun:"
 
-[node name="Label3" type="Label" parent="GameStatistics/VBoxContainer"]
+[node name="Label3" type="Label" parent="TabContainer/Stats/GameStatistics/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
 text = "TimeRunning:"
 
-[node name="Label4" type="Label" parent="GameStatistics/VBoxContainer"]
+[node name="Label4" type="Label" parent="TabContainer/Stats/GameStatistics/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
 text = "MonstersKilled:"
 
-[node name="Label9" type="Label" parent="GameStatistics/VBoxContainer"]
+[node name="Label9" type="Label" parent="TabContainer/Stats/GameStatistics/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
 text = "----------------------------------"
 
-[node name="Label5" type="Label" parent="GameStatistics/VBoxContainer"]
+[node name="Label5" type="Label" parent="TabContainer/Stats/GameStatistics/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
 text = "HighestLevelRecord:"
 
-[node name="Label6" type="Label" parent="GameStatistics/VBoxContainer"]
+[node name="Label6" type="Label" parent="TabContainer/Stats/GameStatistics/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
 text = "LongestRunRecord:"
 
-[node name="Label7" type="Label" parent="GameStatistics/VBoxContainer"]
+[node name="Label7" type="Label" parent="TabContainer/Stats/GameStatistics/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
 text = "TimeRunningRecord:"
 
-[node name="Label8" type="Label" parent="GameStatistics/VBoxContainer"]
+[node name="Label8" type="Label" parent="TabContainer/Stats/GameStatistics/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
 text = "MonstersKilledRecord:"
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="GameStatistics"]
+[node name="VBoxContainer2" type="VBoxContainer" parent="TabContainer/Stats/GameStatistics"]
 layout_mode = 2
 
-[node name="HighestLevel" type="Label" parent="GameStatistics/VBoxContainer2"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 20
-text = "-1"
-
-[node name="LongestRun" type="Label" parent="GameStatistics/VBoxContainer2"]
+[node name="HighestLevel" type="Label" parent="TabContainer/Stats/GameStatistics/VBoxContainer2"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
 text = "-1"
 
-[node name="TimeRunning" type="Label" parent="GameStatistics/VBoxContainer2"]
+[node name="LongestRun" type="Label" parent="TabContainer/Stats/GameStatistics/VBoxContainer2"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
 text = "-1"
 
-[node name="MonstersKilled" type="Label" parent="GameStatistics/VBoxContainer2"]
+[node name="TimeRunning" type="Label" parent="TabContainer/Stats/GameStatistics/VBoxContainer2"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
 text = "-1"
 
-[node name="Label" type="Label" parent="GameStatistics/VBoxContainer2"]
+[node name="MonstersKilled" type="Label" parent="TabContainer/Stats/GameStatistics/VBoxContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "-1"
+
+[node name="Label" type="Label" parent="TabContainer/Stats/GameStatistics/VBoxContainer2"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
 text = "--"
 
-[node name="HighestLevelRecord" type="Label" parent="GameStatistics/VBoxContainer2"]
+[node name="HighestLevelRecord" type="Label" parent="TabContainer/Stats/GameStatistics/VBoxContainer2"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
 text = "-1"
 
-[node name="LongestRunRecord" type="Label" parent="GameStatistics/VBoxContainer2"]
+[node name="LongestRunRecord" type="Label" parent="TabContainer/Stats/GameStatistics/VBoxContainer2"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
 text = "-1"
 
-[node name="TimeRunningRecord" type="Label" parent="GameStatistics/VBoxContainer2"]
+[node name="TimeRunningRecord" type="Label" parent="TabContainer/Stats/GameStatistics/VBoxContainer2"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
 text = "-1"
 
-[node name="MonstersKilledRecord" type="Label" parent="GameStatistics/VBoxContainer2"]
+[node name="MonstersKilledRecord" type="Label" parent="TabContainer/Stats/GameStatistics/VBoxContainer2"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
 text = "-1"
 
-[node name="ScrollContainer" type="ScrollContainer" parent="."]
-anchors_preset = 1
-anchor_left = 1.0
+[node name="Inventory" type="Control" parent="TabContainer"]
+layout_mode = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="TabContainer/Inventory"]
+layout_mode = 1
+anchors_preset = 15
 anchor_right = 1.0
-offset_left = -109.0
-offset_bottom = 304.0
-grow_horizontal = 0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="AbilityContainer" type="VBoxContainer" parent="ScrollContainer"]
+[node name="InventoryContainer" type="GridContainer" parent="TabContainer/Inventory/ScrollContainer"]
 layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+columns = 11
+
+[node name="Abilities" type="Control" parent="TabContainer"]
+visible = false
+layout_mode = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="TabContainer/Abilities"]
+layout_mode = 1
+offset_right = 1150.0
+offset_bottom = 339.0
+
+[node name="AbilityContainer" type="GridContainer" parent="TabContainer/Abilities/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+columns = 10

@@ -1,0 +1,58 @@
+[gd_scene load_steps=3 format=3 uid="uid://bp8cb2bgalrke"]
+
+[ext_resource type="Script" path="res://Scripts/HUD/ItemSlot.cs" id="1_i3did"]
+[ext_resource type="Texture2D" uid="uid://cjrc02l7icjms" path="res://icon.svg" id="1_v2v15"]
+
+[node name="ItemSlot" type="VBoxContainer" node_paths=PackedStringArray("useButton", "lblName", "textureRect")]
+size_flags_horizontal = 0
+size_flags_vertical = 0
+script = ExtResource("1_i3did")
+useButton = NodePath("Button")
+lblName = NodePath("Image/HBoxContainer/VBoxContainer2/Name")
+textureRect = NodePath("Image")
+
+[node name="Image" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+texture = ExtResource("1_v2v15")
+expand_mode = 2
+
+[node name="Panel" type="Panel" parent="Image"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Image"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Image/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="Label" type="Label" parent="Image/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "Name:"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Image/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="Name" type="Label" parent="Image/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 2
+text = "Use"

@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://c5i2km2kcqp8t"]
+[gd_scene load_steps=19 format=3 uid="uid://c5i2km2kcqp8t"]
 
 [ext_resource type="Texture2D" uid="uid://cjrc02l7icjms" path="res://icon.svg" id="1_dmor0"]
 [ext_resource type="Script" path="res://Scripts/Agents/Player/Player.cs" id="2_y4nls"]
@@ -9,6 +9,9 @@
 [ext_resource type="Script" path="res://Resources/Attributes/Strength.cs" id="6_s5r84"]
 [ext_resource type="Script" path="res://Resources/Attributes/Dexterity.cs" id="8_ffr7k"]
 [ext_resource type="Script" path="res://Resources/Attributes/Intelligence.cs" id="9_k21uf"]
+[ext_resource type="Script" path="res://Scripts/Agents/Player/Inventory.cs" id="10_330sj"]
+[ext_resource type="Resource" uid="uid://boy3v5y0dq4ew" path="res://Resources/Items/HpPotion1.tres" id="11_7340t"]
+[ext_resource type="Resource" uid="uid://ds1hu60fuuq52" path="res://Resources/Items/HpPotion2.tres" id="12_7mk5j"]
 
 [sub_resource type="Resource" id="Resource_ycpf8"]
 script = ExtResource("3_atxml")
@@ -49,14 +52,21 @@ script = ExtResource("9_k21uf")
 Value = 1
 Scene = ExtResource("6_6nsxb")
 
-[node name="Player" type="Sprite2D" node_paths=PackedStringArray("Stats")]
+[node name="Player" type="Sprite2D" node_paths=PackedStringArray("Inventory", "Stats")]
 scale = Vector2(0.5, 1)
 texture = ExtResource("1_dmor0")
 script = ExtResource("2_y4nls")
+Inventory = NodePath("Inventory")
 Stats = NodePath("Stats")
 Abilities = [SubResource("Resource_ycpf8"), SubResource("Resource_h820g"), SubResource("Resource_5jpck")]
 
 [node name="Stats" type="Node" parent="."]
+unique_name_in_owner = true
 script = ExtResource("3_uus8g")
 Attributes = [SubResource("Resource_unasm"), SubResource("Resource_q168o"), SubResource("Resource_j6ecs")]
 AP = 5
+
+[node name="Inventory" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("10_330sj")
+items = [ExtResource("11_7340t"), ExtResource("12_7mk5j")]

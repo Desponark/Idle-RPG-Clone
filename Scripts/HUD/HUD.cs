@@ -5,6 +5,7 @@ public partial class HUD : CanvasLayer {
 	public event Action<Attribute> AttributeUp;
 	public event Action<Ability> AbilityUpgrade;
 	public event Action<Ability> AbilityUse;
+	public event Action<Item> ItemUse;
 
 	[Export]
 	private Player player;
@@ -32,6 +33,9 @@ public partial class HUD : CanvasLayer {
 	[Export]
 	private Node abilityContainer;
 
+	[Export]
+	private Node inventoryContainer;
+
 
 	public void Setup(GameStatistics gameStatistics) {
 		this.gameStatistics = gameStatistics;
@@ -40,6 +44,9 @@ public partial class HUD : CanvasLayer {
 	public override void _Ready() {
 		PopulateAttributes();
 		PopulateAbilities();
+		PopulateInventory();
+		player.Inventory.Added += (Item item) => { PopulateInventory(); };
+		player.Inventory.Removed += (Item item) => { PopulateInventory(); };
 	}
 
 	private void PopulateAttributes() {
@@ -58,6 +65,20 @@ public partial class HUD : CanvasLayer {
 			abilityBtn.Init(ability);
 			abilityBtn.UseButton.Pressed += () => { AbilityUse.Invoke(ability); };
 			abilityBtn.UpgradeButton.Pressed += () => { AbilityUpgrade.Invoke(ability); };
+		}
+	}
+
+	private void PopulateInventory() {
+		// simply redo the entire inventory for now
+		foreach (var node in inventoryContainer.GetChildren()) {
+			node.QueueFree();
+		}
+
+		foreach (var item in player.Inventory.GetItems()) {
+			var itemSlot = item.Scene.Instantiate<ItemSlot>();
+			inventoryContainer.AddChild(itemSlot);
+			itemSlot.Init(item);
+			itemSlot.useButton.Pressed += () => { ItemUse.Invoke(item); };
 		}
 	}
 

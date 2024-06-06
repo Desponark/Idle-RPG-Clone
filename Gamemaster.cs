@@ -34,6 +34,7 @@ public partial class Gamemaster : Node2D {
 		hud.AttributeUp += (Attribute attribute) => { RulesetStats.IncreaseAttribute(attribute, player.Stats); };
 		hud.AbilityUpgrade += (Ability ability) => { ability.Upgrade(player); };
 		hud.AbilityUse += (Ability ability) => { ability.Execute(player, enemies.FirstOrDefault()); };
+		hud.ItemUse += (Item item) => { item.Execute(player); };
 	}
 
 	public override void _Input(InputEvent @event) {
