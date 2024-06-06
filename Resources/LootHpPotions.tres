@@ -1,10 +1,10 @@
 [gd_resource type="Resource" script_class="Loot" load_steps=3 format=3 uid="uid://cu02kmqmaupaw"]
 
-[ext_resource type="Script" path="res://Scripts/Agents/Enemies/Loot.cs" id="1_c2wec"]
-[ext_resource type="Resource" uid="uid://boy3v5y0dq4ew" path="res://Resources/Items/HpPotion1.tres" id="1_tltps"]
+[ext_resource type="Resource" uid="uid://boy3v5y0dq4ew" path="res://Resources/Items/HpPotion1.tres" id="1_7bpq0"]
+[ext_resource type="Script" path="res://Scripts/Agents/Enemies/Loot.cs" id="2_p6pbf"]
 
 [resource]
 resource_local_to_scene = true
-script = ExtResource("1_c2wec")
-Items = [ExtResource("1_tltps")]
+script = ExtResource("2_p6pbf")
+Items = [ExtResource("1_7bpq0")]
 Dropchance = 80.0

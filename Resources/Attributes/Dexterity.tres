@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Dexterity" load_steps=3 format=3 uid="uid://kd5y1wp65q8h"]
+
+[ext_resource type="PackedScene" uid="uid://dgten5paskxdo" path="res://Scenes/HUD/Attribute.tscn" id="1_wvjxe"]
+[ext_resource type="Script" path="res://Scripts/Resources/Attributes/Dexterity.cs" id="2_o4wvg"]
+
+[resource]
+script = ExtResource("2_o4wvg")
+Value = 1
+Scene = ExtResource("1_wvjxe")

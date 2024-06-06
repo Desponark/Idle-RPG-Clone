@@ -1,11 +1,11 @@
 [gd_resource type="Resource" script_class="HpPotion" load_steps=3 format=3 uid="uid://boy3v5y0dq4ew"]
 
 [ext_resource type="PackedScene" uid="uid://crcx36cbv10js" path="res://Scenes/HUD/ItemSlotHpPotion.tscn" id="1_n6i4d"]
-[ext_resource type="Script" path="res://Resources/HpPotion.cs" id="1_x0xy8"]
+[ext_resource type="Script" path="res://Scripts/Resources/Items/HpPotion.cs" id="2_7bwfk"]
 
 [resource]
 resource_local_to_scene = true
-script = ExtResource("1_x0xy8")
+script = ExtResource("2_7bwfk")
 HealAmount = 10
 Name = "Hp Potion 1"
 Scene = ExtResource("1_n6i4d")

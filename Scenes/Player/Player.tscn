@@ -6,9 +6,9 @@
 [ext_resource type="Script" path="res://Scripts/Abilities/FireBolt.cs" id="3_atxml"]
 [ext_resource type="Script" path="res://Scripts/Agents/Stats.cs" id="3_uus8g"]
 [ext_resource type="PackedScene" uid="uid://dgten5paskxdo" path="res://Scenes/HUD/Attribute.tscn" id="6_6nsxb"]
-[ext_resource type="Script" path="res://Resources/Attributes/Strength.cs" id="6_s5r84"]
-[ext_resource type="Script" path="res://Resources/Attributes/Dexterity.cs" id="8_ffr7k"]
-[ext_resource type="Script" path="res://Resources/Attributes/Intelligence.cs" id="9_k21uf"]
+[ext_resource type="Script" path="res://Scripts/Resources/Attributes/Strength.cs" id="7_17u6q"]
+[ext_resource type="Script" path="res://Scripts/Resources/Attributes/Dexterity.cs" id="8_w8iwd"]
+[ext_resource type="Script" path="res://Scripts/Resources/Attributes/Intelligence.cs" id="9_wu0cj"]
 [ext_resource type="Script" path="res://Scripts/Agents/Player/Inventory.cs" id="10_330sj"]
 [ext_resource type="Resource" uid="uid://boy3v5y0dq4ew" path="res://Resources/Items/HpPotion1.tres" id="11_7340t"]
 [ext_resource type="Resource" uid="uid://ds1hu60fuuq52" path="res://Resources/Items/HpPotion2.tres" id="12_7mk5j"]
@@ -38,17 +38,17 @@ BaseDamage = 20
 unlockCost = 1
 
 [sub_resource type="Resource" id="Resource_unasm"]
-script = ExtResource("6_s5r84")
+script = ExtResource("7_17u6q")
 Value = 1
 Scene = ExtResource("6_6nsxb")
 
 [sub_resource type="Resource" id="Resource_q168o"]
-script = ExtResource("8_ffr7k")
+script = ExtResource("8_w8iwd")
 Value = 1
 Scene = ExtResource("6_6nsxb")
 
 [sub_resource type="Resource" id="Resource_j6ecs"]
-script = ExtResource("9_k21uf")
+script = ExtResource("9_wu0cj")
 Value = 1
 Scene = ExtResource("6_6nsxb")
 

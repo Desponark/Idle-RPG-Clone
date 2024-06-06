@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Strength" load_steps=3 format=3 uid="uid://cl5qc7ncfiqmb"]
+
+[ext_resource type="PackedScene" uid="uid://dgten5paskxdo" path="res://Scenes/HUD/Attribute.tscn" id="1_4xo25"]
+[ext_resource type="Script" path="res://Scripts/Resources/Attributes/Strength.cs" id="2_c1i7a"]
+
+[resource]
+script = ExtResource("2_c1i7a")
+Value = 1
+Scene = ExtResource("1_4xo25")

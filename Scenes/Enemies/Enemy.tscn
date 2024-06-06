@@ -1,16 +1,23 @@
-[gd_scene load_steps=5 format=3 uid="uid://brdxej1ucir25"]
+[gd_scene load_steps=7 format=3 uid="uid://brdxej1ucir25"]
 
 [ext_resource type="Texture2D" uid="uid://cjrc02l7icjms" path="res://icon.svg" id="1_v4b1m"]
 [ext_resource type="Script" path="res://Scripts/Agents/Enemies/Enemy.cs" id="2_e7qlc"]
 [ext_resource type="Script" path="res://Scripts/Agents/Stats.cs" id="3_ie3ln"]
-[ext_resource type="Resource" uid="uid://cu02kmqmaupaw" path="res://Resources/LootHpPotions.tres" id="3_sh2b2"]
+[ext_resource type="Resource" uid="uid://boy3v5y0dq4ew" path="res://Resources/Items/HpPotion1.tres" id="3_rdhro"]
+[ext_resource type="Script" path="res://Scripts/Agents/Enemies/Loot.cs" id="4_nrfwp"]
+
+[sub_resource type="Resource" id="Resource_xwn8v"]
+resource_local_to_scene = true
+script = ExtResource("4_nrfwp")
+Items = [ExtResource("3_rdhro")]
+Dropchance = 80.0
 
 [node name="Enemy" type="Sprite2D" node_paths=PackedStringArray("Stats")]
 modulate = Color(1, 0, 0, 1)
 scale = Vector2(0.46875, 1)
 texture = ExtResource("1_v4b1m")
 script = ExtResource("2_e7qlc")
-Loot = [ExtResource("3_sh2b2")]
+Loot = [SubResource("Resource_xwn8v")]
 Stats = NodePath("Stats")
 
 [node name="Stats" type="Node" parent="."]
