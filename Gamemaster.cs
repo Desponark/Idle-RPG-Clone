@@ -97,7 +97,7 @@ public partial class Gamemaster : Node2D {
 		var enemyScene = enemyScenes[random.Next(0, enemyScenes.Count)];
 		var enemy = enemyScene.Instantiate<Enemy>();
 		enemy.Position = new Vector2(1200, 513);
-		AddChild(enemy);
+		AddChild(enemy, true);
 		enemies.Add(enemy);
 
 		enemy.Died += OnEnemyDeath;

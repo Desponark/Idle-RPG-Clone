@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://dlfgk8v7lonjc"]
+[gd_scene load_steps=3 format=3 uid="uid://dlfgk8v7lonjc"]
 
 [ext_resource type="Script" path="res://Scripts/HUD/HUD.cs" id="1_echo6"]
+[ext_resource type="Script" path="res://Scripts/HUD/Logger.cs" id="2_2dx1q"]
 
 [node name="HUD" type="CanvasLayer" node_paths=PackedStringArray("maxHP", "hp", "maxSP", "sp", "maxMP", "mp", "atk", "magAtk", "acc", "atkSpd", "moveSpd", "lvl", "exp", "expTotal", "expReq", "ap", "rp", "rpPotential", "highestLevel", "longestRun", "timeRunning", "monstersKilled", "highestLevelRecord", "longestRunRecord", "timeRunningRecord", "monstersKilledRecord", "attributesContainer", "abilityContainer", "inventoryContainer")]
 script = ExtResource("1_echo6")
@@ -436,3 +437,29 @@ offset_bottom = 339.0
 layout_mode = 2
 size_flags_horizontal = 4
 columns = 10
+
+[node name="Logger" type="RichTextLabel" parent="."]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -500.0
+offset_top = -250.0
+grow_horizontal = 0
+grow_vertical = 0
+bbcode_enabled = true
+scroll_following = true
+shortcut_keys_enabled = false
+threaded = true
+deselect_on_focus_loss_enabled = false
+script = ExtResource("2_2dx1q")
+
+[node name="Panel" type="Panel" parent="Logger"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2

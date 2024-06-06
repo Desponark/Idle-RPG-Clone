@@ -18,6 +18,7 @@ public partial class Agent : Node2D {
 	public void Attack(Agent target, double delta) {
 		if (CanAttack(delta)) {
 			target.TakeDamage(Stats.Atk);
+			Logger.Log($"{Name} attacked for [color=red]{Stats.Atk} damage[/color]");
 		}
 	}
 
@@ -66,6 +67,7 @@ public partial class Agent : Node2D {
 		if (CanIncreaseAttributes()) {
 			Stats.AP--;
 			attribute.Value++;
+			Logger.Log($"{Name} increased [shake rate=20.0 level=5 connected=1][color=Blue]{attribute.GetType()}[/color][/shake]");
 		}
 	}
 
@@ -77,6 +79,7 @@ public partial class Agent : Node2D {
 			Stats.Exp -= Stats.ExpReq;
 			LevelUp(Stats);
 		}
+		Logger.Log($"{Name} gained [color=Yellow]{amount} experience[/color]");
 	}
 
 	private void LevelUp(Stats stats) {
@@ -84,6 +87,7 @@ public partial class Agent : Node2D {
 		stats.ExpReq = GetReqExp(stats.Lvl + 1);
 
 		stats.AP += 5;
+		Logger.Log($"[rainbow freq=1.0 sat=0.8 val=0.8]{Name} leveld up[/rainbow]");
 	}
 
 	private int GetReqExp(int level) {

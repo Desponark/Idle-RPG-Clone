@@ -12,5 +12,7 @@ public partial class HpPotion : Item {
 		agent.HealHp(HealAmount);
 
 		Used.Invoke(this);
+
+		Logger.Log($"{agent.Name} used [color=silver]{Name}[/color] healing [color=green]{HealAmount} health[/color]");
 	}
 }

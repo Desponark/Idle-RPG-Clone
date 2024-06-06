@@ -22,9 +22,9 @@ public partial class Enemy : Agent {
 		var random = new Random();
 		foreach (var item in Loot) {
 			if (item.Dropchance >= random.Next(100)) {
-				GD.Print("Player dropped item(s)");
 				foreach (var it in item.Items) {
 					player.Inventory.AddItem(it);
+					Logger.Log($"{Name} [color=gold]dropped[/color] [color=silver]{it.Name}[/color]");
 				}
 			}
 		}

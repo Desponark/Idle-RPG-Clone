@@ -1,9 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://c5i2km2kcqp8t"]
+[gd_scene load_steps=13 format=3 uid="uid://c5i2km2kcqp8t"]
 
 [ext_resource type="Texture2D" uid="uid://cjrc02l7icjms" path="res://icon.svg" id="1_dmor0"]
 [ext_resource type="Script" path="res://Scripts/Agents/Player/Player.cs" id="2_y4nls"]
 [ext_resource type="Resource" uid="uid://dj022jqrpqiv" path="res://Resources/Abilities/Firebolt.tres" id="3_4w0is"]
 [ext_resource type="Script" path="res://Scripts/Agents/Stats.cs" id="3_uus8g"]
+[ext_resource type="Resource" uid="uid://4gvr6p36fns" path="res://Resources/Abilities/Firebolt2.tres" id="4_ggtup"]
 [ext_resource type="Resource" uid="uid://cl5qc7ncfiqmb" path="res://Resources/Attributes/Strength.tres" id="6_443g1"]
 [ext_resource type="Resource" uid="uid://kd5y1wp65q8h" path="res://Resources/Attributes/Dexterity.tres" id="7_ommu6"]
 [ext_resource type="Resource" uid="uid://bohltyv4jpao8" path="res://Resources/Attributes/Intelligence.tres" id="8_um52b"]
@@ -16,7 +17,7 @@
 script = ExtResource("2_y4nls")
 Inventory = NodePath("Inventory")
 Stats = NodePath("Stats")
-Abilities = [ExtResource("3_4w0is"), ExtResource("3_4w0is")]
+Abilities = [ExtResource("3_4w0is"), ExtResource("4_ggtup")]
 
 [node name="Player" type="Sprite2D" parent="."]
 scale = Vector2(0.5, 1)

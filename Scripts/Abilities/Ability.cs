@@ -26,7 +26,8 @@ public abstract partial class Ability : Resource {
 
 		self.Stats.RP -= UpgradeCost;
 		Level++;
-		GD.Print(Name + " Upgrade");
+
+		Logger.Log($"{self.Name} upgraded [color=orange]{Name}[/color] to [color=blue]{Level} level[/color]");
 	}
 
 	public abstract void Execute(Agent self, Agent target);
