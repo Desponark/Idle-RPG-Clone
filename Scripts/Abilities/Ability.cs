@@ -26,6 +26,7 @@ public abstract partial class Ability : Resource {
 
 		self.Stats.RP -= UpgradeCost;
 		Level++;
+		GD.Print(Name + " Upgrade");
 	}
 
 	public abstract void Execute(Agent self, Agent target);

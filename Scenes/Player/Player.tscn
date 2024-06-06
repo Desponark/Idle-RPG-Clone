@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://c5i2km2kcqp8t"]
+[gd_scene load_steps=16 format=3 uid="uid://c5i2km2kcqp8t"]
 
 [ext_resource type="Texture2D" uid="uid://cjrc02l7icjms" path="res://icon.svg" id="1_dmor0"]
 [ext_resource type="Script" path="res://Scripts/Agents/Player/Player.cs" id="2_y4nls"]
@@ -12,23 +12,39 @@
 
 [sub_resource type="Resource" id="Resource_ycpf8"]
 script = ExtResource("3_atxml")
-Name = ""
+Name = "Firebolt"
 Scene = ExtResource("3_4tqbe")
 CastCost = 20
 BaseDamage = 5
 unlockCost = 1
 
-[sub_resource type="Resource" id="Resource_pdcb6"]
+[sub_resource type="Resource" id="Resource_h820g"]
+script = ExtResource("3_atxml")
+Name = "Firebolt2"
+Scene = ExtResource("3_4tqbe")
+CastCost = 5
+BaseDamage = 2
+unlockCost = 1
+
+[sub_resource type="Resource" id="Resource_5jpck"]
+script = ExtResource("3_atxml")
+Name = "Firebolt3"
+Scene = ExtResource("3_4tqbe")
+CastCost = 40
+BaseDamage = 20
+unlockCost = 1
+
+[sub_resource type="Resource" id="Resource_unasm"]
 script = ExtResource("6_s5r84")
 Value = 1
 Scene = ExtResource("6_6nsxb")
 
-[sub_resource type="Resource" id="Resource_r50uv"]
+[sub_resource type="Resource" id="Resource_q168o"]
 script = ExtResource("8_ffr7k")
 Value = 1
 Scene = ExtResource("6_6nsxb")
 
-[sub_resource type="Resource" id="Resource_xw0es"]
+[sub_resource type="Resource" id="Resource_j6ecs"]
 script = ExtResource("9_k21uf")
 Value = 1
 Scene = ExtResource("6_6nsxb")
@@ -38,9 +54,9 @@ scale = Vector2(0.5, 1)
 texture = ExtResource("1_dmor0")
 script = ExtResource("2_y4nls")
 Stats = NodePath("Stats")
-Abilities = [SubResource("Resource_ycpf8")]
+Abilities = [SubResource("Resource_ycpf8"), SubResource("Resource_h820g"), SubResource("Resource_5jpck")]
 
 [node name="Stats" type="Node" parent="."]
 script = ExtResource("3_uus8g")
-Attributes = [SubResource("Resource_pdcb6"), SubResource("Resource_r50uv"), SubResource("Resource_xw0es")]
+Attributes = [SubResource("Resource_unasm"), SubResource("Resource_q168o"), SubResource("Resource_j6ecs")]
 AP = 5

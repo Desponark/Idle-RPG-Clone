@@ -3,17 +3,17 @@
 [ext_resource type="Script" path="res://Scripts/HUD/AbilityButton.cs" id="1_xjlkv"]
 [ext_resource type="Texture2D" uid="uid://cpmpq6q4chewe" path="res://Assets/fireball.png" id="2_v8dr6"]
 
-[node name="AbilityButton" type="VBoxContainer" node_paths=PackedStringArray("UseButton", "UpgradeButton", "LblName", "LblLevel", "LblCost", "LblDamage", "LblUpgradeCost")]
+[node name="AbilityButton" type="VBoxContainer" node_paths=PackedStringArray("UseButton", "UpgradeButton", "LblName", "lblLevel", "lblCost", "lblDamage", "lblUpgradeCost")]
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("1_xjlkv")
 UseButton = NodePath("Ability")
 UpgradeButton = NodePath("Upgrade")
 LblName = NodePath("Ability/HBoxContainer5/VBoxContainer2/Name")
-LblLevel = NodePath("Ability/HBoxContainer5/VBoxContainer2/Lvl")
-LblCost = NodePath("Ability/HBoxContainer5/VBoxContainer2/Cost")
-LblDamage = NodePath("Ability/HBoxContainer5/VBoxContainer2/Dmg")
-LblUpgradeCost = NodePath("Ability/HBoxContainer5/VBoxContainer2/UpgradeCost")
+lblLevel = NodePath("Ability/HBoxContainer5/VBoxContainer2/Lvl")
+lblCost = NodePath("Ability/HBoxContainer5/VBoxContainer2/Cost")
+lblDamage = NodePath("Ability/HBoxContainer5/VBoxContainer2/Dmg")
+lblUpgradeCost = NodePath("Ability/HBoxContainer5/VBoxContainer2/UpgradeCost")
 
 [node name="Ability" type="TextureButton" parent="."]
 custom_minimum_size = Vector2(100, 100)
@@ -74,30 +74,35 @@ text = "Rp Cost:"
 layout_mode = 2
 
 [node name="Name" type="Label" parent="Ability/HBoxContainer5/VBoxContainer2"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_font_sizes/font_size = 10
 text = "Placeholder"
 
 [node name="Lvl" type="Label" parent="Ability/HBoxContainer5/VBoxContainer2"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_font_sizes/font_size = 10
 text = "-1"
 
 [node name="Dmg" type="Label" parent="Ability/HBoxContainer5/VBoxContainer2"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_font_sizes/font_size = 10
 text = "-1"
 
 [node name="Cost" type="Label" parent="Ability/HBoxContainer5/VBoxContainer2"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_font_sizes/font_size = 10
 text = "-1"
 
 [node name="UpgradeCost" type="Label" parent="Ability/HBoxContainer5/VBoxContainer2"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_font_sizes/font_size = 10

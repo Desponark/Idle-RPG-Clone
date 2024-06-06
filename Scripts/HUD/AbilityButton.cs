@@ -6,21 +6,40 @@ public partial class AbilityButton : VBoxContainer {
 	[Export]
 	public Button UpgradeButton;
 	[Export]
-	public Label LblName;
+	private Label LblName;
 	[Export]
-	public Label LblLevel;
+	private Label lblLevel;
 	[Export]
-	public Label LblCost;
+	private Label lblCost;
 	[Export]
-	public Label LblDamage;
+	private Label lblDamage;
 	[Export]
-	public Label LblUpgradeCost;
+	private Label lblUpgradeCost;
 
-	public void Display(Ability ability) {
+	private Ability ability;
+
+	public void Init(Ability ability) {
+		this.ability = ability;
+
 		LblName.Text = ability.Name;
-		LblLevel.Text = ability.Level.ToString();
-		LblCost.Text = ability.CastCost.ToString();
-		LblDamage.Text = ability.BaseDamage.ToString();
-		LblUpgradeCost.Text = ability.UpgradeCost.ToString();
+		UpdateLabels();
+	}
+
+	public void Update() {
+		UpdateLabels();
+
+		if (ability.IsUnlocked()) {
+			UseButton.Disabled = false;
+		}
+		else {
+			UseButton.Disabled = true;
+		}
+	}
+
+	private void UpdateLabels() {
+		lblLevel.Text = ability.Level.ToString();
+		lblCost.Text = ability.CastCost.ToString();
+		lblDamage.Text = ability.BaseDamage.ToString();
+		lblUpgradeCost.Text = ability.UpgradeCost.ToString();
 	}
 }

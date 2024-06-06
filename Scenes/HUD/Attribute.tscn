@@ -2,13 +2,13 @@
 
 [ext_resource type="Script" path="res://Scripts/HUD/AttributeControl.cs" id="1_qvu2n"]
 
-[node name="Attribute" type="HBoxContainer" node_paths=PackedStringArray("Button", "LbName", "LbValue")]
+[node name="Attribute" type="HBoxContainer" node_paths=PackedStringArray("button", "lbName", "lbValue")]
 offset_right = 117.0
 offset_bottom = 40.0
 script = ExtResource("1_qvu2n")
-Button = NodePath("Button")
-LbName = NodePath("Name")
-LbValue = NodePath("Value")
+button = NodePath("Button")
+lbName = NodePath("Name")
+lbValue = NodePath("Value")
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 2

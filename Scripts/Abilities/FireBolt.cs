@@ -2,8 +2,6 @@ using Godot;
 
 [GlobalClass]
 public partial class FireBolt : Ability {
-	// public new string Name { get => "Firebolt"; }
-
 	public override void Execute(Agent self, Agent target) {
 		if (target == null)
 			return;

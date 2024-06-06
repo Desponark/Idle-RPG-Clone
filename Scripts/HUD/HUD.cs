@@ -3,6 +3,8 @@ using Godot;
 
 public partial class HUD : CanvasLayer {
 	public event Action<Attribute> AttributeUp;
+	public event Action<Ability> AbilityUpgrade;
+	public event Action<Ability> AbilityUse;
 
 	[Export]
 	private Player player;
@@ -44,8 +46,8 @@ public partial class HUD : CanvasLayer {
 		foreach (var attribute in player.Stats.Attributes) {
 			var attrCtrl = attribute.Scene.Instantiate<AttributeControl>();
 			attributesContainer.AddChild(attrCtrl);
-			attrCtrl.Display(attribute);
-			attrCtrl.Button.Pressed += () => { AttributeUp.Invoke(attribute); };
+			attrCtrl.Init(attribute);
+			attrCtrl.button.Pressed += () => { AttributeUp.Invoke(attribute); };
 		}
 	}
 
@@ -53,15 +55,17 @@ public partial class HUD : CanvasLayer {
 		foreach (var ability in player.Abilities) {
 			var abilityBtn = ability.Scene.Instantiate<AbilityButton>();
 			abilityContainer.AddChild(abilityBtn);
-			abilityBtn.Display(ability);
-			abilityBtn.UseButton.Pressed += () => { };
-			abilityBtn.UpgradeButton.Pressed += () => { };
+			abilityBtn.Init(ability);
+			abilityBtn.UseButton.Pressed += () => { AbilityUse.Invoke(ability); };
+			abilityBtn.UpgradeButton.Pressed += () => { AbilityUpgrade.Invoke(ability); };
 		}
 	}
 
 	public override void _Process(double delta) {
 		// attributes
 		UpdateAttributes();
+
+		UpdateAbilities();
 
 		UpdatePlayerStats();
 
@@ -71,13 +75,15 @@ public partial class HUD : CanvasLayer {
 	private void UpdateAttributes() {
 		foreach (var node in attributesContainer.GetChildren()) {
 			if (node is AttributeControl attrCtrl) {
-				attrCtrl.LbValue.Text = attrCtrl.Attribute.Value.ToString();
-				if (RulesetStats.CanIncreaseAttributes(player.Stats)) {
-					attrCtrl.Button.Disabled = false;
-				}
-				else {
-					attrCtrl.Button.Disabled = true;
-				}
+				attrCtrl.Update(player.Stats);
+			}
+		}
+	}
+
+	private void UpdateAbilities() {
+		foreach (var node in abilityContainer.GetChildren()) {
+			if (node is AbilityButton abilityButton) {
+				abilityButton.Update();
 			}
 		}
 	}

@@ -3,17 +3,28 @@ using System;
 
 public partial class AttributeControl : Control {
 	[Export]
-	public Button Button;
+	public Button button;
 	[Export]
-	public Label LbName;
+	private Label lbName;
 	[Export]
-	public Label LbValue;
+	private Label lbValue;
 
-	public Attribute Attribute;
+	private Attribute attribute;
 
-	public void Display(Attribute attribute) {
-		LbName.Text = attribute.GetType().Name;
-		Attribute = attribute;
-		LbValue.Text = attribute.Value.ToString();
+	public void Init(Attribute attribute) {
+		this.attribute = attribute;
+
+		lbName.Text = attribute.GetType().Name;
+		lbValue.Text = attribute.Value.ToString();
+	}
+
+	public void Update(Stats stats) {
+		lbValue.Text = attribute.Value.ToString();
+		if (RulesetStats.CanIncreaseAttributes(stats)) {
+			button.Disabled = false;
+		}
+		else {
+			button.Disabled = true;
+		}
 	}
 }
