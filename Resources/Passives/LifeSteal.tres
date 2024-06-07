@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="PassiveProc" load_steps=2 format=3 uid="uid://dd1tgw0vqw66r"]
 
-[ext_resource type="Script" path="res://Scripts/Passives/PassiveProc.cs" id="1_qcr5u"]
+[ext_resource type="Script" path="res://Scripts/Resources/Passives/PassiveProc.cs" id="1_qcr5u"]
 
 [resource]
 script = ExtResource("1_qcr5u")

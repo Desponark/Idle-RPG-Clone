@@ -1,10 +1,10 @@
 [gd_resource type="Resource" script_class="FireBolt" load_steps=3 format=3 uid="uid://dj022jqrpqiv"]
 
 [ext_resource type="PackedScene" uid="uid://4khp85w2htyr" path="res://Scenes/HUD/AbilityButton.tscn" id="1_iorj3"]
-[ext_resource type="Script" path="res://Scripts/Abilities/FireBolt.cs" id="2_g4n41"]
+[ext_resource type="Script" path="res://Scripts/Resources/Abilities/FireBolt.cs" id="2_i5ncl"]
 
 [resource]
-script = ExtResource("2_g4n41")
+script = ExtResource("2_i5ncl")
 Name = "Firebolt"
 Scene = ExtResource("1_iorj3")
 CastCost = 20

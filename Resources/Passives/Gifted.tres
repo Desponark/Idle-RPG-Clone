@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://Scripts/Resources/Attributes/Strength.cs" id="2_6tske"]
 [ext_resource type="Script" path="res://Scripts/Resources/Attributes/Dexterity.cs" id="3_m2oid"]
 [ext_resource type="Script" path="res://Scripts/Resources/Attributes/Intelligence.cs" id="4_l1mb2"]
-[ext_resource type="Script" path="res://Scripts/Passives/PassiveAttribute.cs" id="5_xwddl"]
+[ext_resource type="Script" path="res://Scripts/Resources/Passives/PassiveAttribute.cs" id="5_xwddl"]
 
 [sub_resource type="Resource" id="Resource_k0xkv"]
 script = ExtResource("2_6tske")
