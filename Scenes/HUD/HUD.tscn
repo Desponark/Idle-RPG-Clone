@@ -1,9 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://dlfgk8v7lonjc"]
+[gd_scene load_steps=4 format=3 uid="uid://dlfgk8v7lonjc"]
 
 [ext_resource type="Script" path="res://Scripts/HUD/HUD.cs" id="1_echo6"]
+[ext_resource type="PackedScene" uid="uid://1ihlxoblru7m" path="res://Scenes/HUD/PassiveHolder.tscn" id="2_0rc1b"]
 [ext_resource type="Script" path="res://Scripts/HUD/Logger.cs" id="2_2dx1q"]
 
-[node name="HUD" type="CanvasLayer" node_paths=PackedStringArray("maxHP", "hp", "maxSP", "sp", "maxMP", "mp", "atk", "magAtk", "acc", "atkSpd", "moveSpd", "lvl", "exp", "expTotal", "expReq", "ap", "rp", "rpPotential", "highestLevel", "longestRun", "timeRunning", "monstersKilled", "highestLevelRecord", "longestRunRecord", "timeRunningRecord", "monstersKilledRecord", "attributesContainer", "abilityContainer", "inventoryContainer")]
+[node name="HUD" type="CanvasLayer" node_paths=PackedStringArray("maxHP", "hp", "maxSP", "sp", "maxMP", "mp", "atk", "magAtk", "acc", "atkSpd", "moveSpd", "lvl", "exp", "expTotal", "expReq", "ap", "rp", "rpPotential", "highestLevel", "longestRun", "timeRunning", "monstersKilled", "highestLevelRecord", "longestRunRecord", "timeRunningRecord", "monstersKilledRecord", "attributesContainer", "abilityContainer", "inventoryContainer", "PassiveAttributesContainer", "PassiveEffectsContainer", "PassiveProcsContainer")]
 script = ExtResource("1_echo6")
 maxHP = NodePath("TabContainer/Stats/DefensiveStats/VBoxContainer2/MaxHP")
 hp = NodePath("TabContainer/Stats/DefensiveStats/VBoxContainer2/HP")
@@ -34,6 +35,10 @@ monstersKilledRecord = NodePath("TabContainer/Stats/GameStatistics/VBoxContainer
 attributesContainer = NodePath("TabContainer/Stats/AttributesContainer")
 abilityContainer = NodePath("TabContainer/Abilities/ScrollContainer/AbilityContainer")
 inventoryContainer = NodePath("TabContainer/Inventory/ScrollContainer/InventoryContainer")
+PassiveHolderScene = ExtResource("2_0rc1b")
+PassiveAttributesContainer = NodePath("TabContainer/Passives/ScrollContainer/HBoxContainer/PassiveAttributesContainer")
+PassiveEffectsContainer = NodePath("TabContainer/Passives/ScrollContainer/HBoxContainer/PassiveEffectsContainer")
+PassiveProcsContainer = NodePath("TabContainer/Passives/ScrollContainer/HBoxContainer/PassiveProcsContainer")
 
 [node name="TabContainer" type="TabContainer" parent="."]
 anchors_preset = 15
@@ -437,6 +442,36 @@ offset_bottom = 339.0
 layout_mode = 2
 size_flags_horizontal = 4
 columns = 10
+
+[node name="Passives" type="Control" parent="TabContainer"]
+visible = false
+layout_mode = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="TabContainer/Passives"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TabContainer/Passives/ScrollContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="PassiveAttributesContainer" type="VBoxContainer" parent="TabContainer/Passives/ScrollContainer/HBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+
+[node name="PassiveEffectsContainer" type="VBoxContainer" parent="TabContainer/Passives/ScrollContainer/HBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+
+[node name="PassiveProcsContainer" type="VBoxContainer" parent="TabContainer/Passives/ScrollContainer/HBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
 
 [node name="Logger" type="RichTextLabel" parent="." groups=["persist"]]
 anchors_preset = 3

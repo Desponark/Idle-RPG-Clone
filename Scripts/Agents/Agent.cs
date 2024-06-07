@@ -1,5 +1,6 @@
 using System;
 using Godot;
+using Godot.Collections;
 
 public partial class Agent : Node2D {
 	[Export]
@@ -8,13 +9,28 @@ public partial class Agent : Node2D {
 	[Export]
 	public Ability[] Abilities = System.Array.Empty<Ability>();
 
+	[Export]
+	public Array<PassiveAttribute> PassiveAttributes = new();
+	[Export]
+	public Array<PassiveEffect> PassiveEffects = new();
+	[Export]
+	public Array<PassiveProc> PassiveProcs = new();
+
 	public event Action<Agent> Died;
 
 	public float AtkTimer = 0;
 
 	private const float CombatDistance = 100;
 
+	public override void _Process(double delta) {
+		// TODO: Improve if time
+		foreach (var passiveAttr in PassiveAttributes) {
+			passiveAttr.SetAttributeValues(Stats.Attributes);
+		}
+	}
+
 	// fighting
+
 	public void Attack(Agent target, double delta) {
 		if (CanAttack(delta)) {
 			target.TakeDamage(Stats.Atk);
@@ -66,7 +82,7 @@ public partial class Agent : Node2D {
 	public void IncreaseAttribute(Attribute attribute) {
 		if (CanIncreaseAttributes()) {
 			Stats.AP--;
-			attribute.Value++;
+			attribute.BaseValue++;
 			Logger.Log($"{Name} increased [shake rate=20.0 level=5 connected=1][color=Blue]{attribute.GetType()}[/color][/shake]");
 		}
 	}

@@ -3,6 +3,8 @@ using Godot;
 [GlobalClass]
 public abstract partial class Attribute : Resource {
 	[Export]
+	public int BaseValue = 1;
+
 	public int Value = 1;
 
 	[Export]

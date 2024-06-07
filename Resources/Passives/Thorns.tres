@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="PassiveEffect" load_steps=2 format=3 uid="uid://ddgg1nalxxdy8"]
+
+[ext_resource type="Script" path="res://Scripts/Passives/PassiveEffect.cs" id="1_75jm1"]
+
+[resource]
+script = ExtResource("1_75jm1")
+Name = "Thorns"
+Level = 0
+IncreaseBy = 1

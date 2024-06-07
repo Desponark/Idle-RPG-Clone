@@ -1,0 +1,21 @@
+[gd_scene load_steps=2 format=3 uid="uid://1ihlxoblru7m"]
+
+[ext_resource type="Script" path="res://Scenes/HUD/PassiveHolder.cs" id="1_7rqjm"]
+
+[node name="PassivesHolder" type="HBoxContainer" node_paths=PackedStringArray("Lblname", "LblLevel", "Button")]
+script = ExtResource("1_7rqjm")
+Lblname = NodePath("Name")
+LblLevel = NodePath("Level")
+Button = NodePath("Button")
+
+[node name="Name" type="Label" parent="."]
+layout_mode = 2
+text = "Gifted: "
+
+[node name="Level" type="Label" parent="."]
+layout_mode = 2
+text = "0"
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 2
+text = "+"

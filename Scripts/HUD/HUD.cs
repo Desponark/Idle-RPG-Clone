@@ -36,6 +36,15 @@ public partial class HUD : CanvasLayer {
 	[Export]
 	private Node inventoryContainer;
 
+	[Export]
+	private PackedScene PassiveHolderScene;
+	[Export]
+	private Node PassiveAttributesContainer;
+	[Export]
+	private Node PassiveEffectsContainer;
+	[Export]
+	private Node PassiveProcsContainer;
+
 
 	public void Setup(GameStatistics gameStatistics) {
 		this.gameStatistics = gameStatistics;
@@ -47,6 +56,7 @@ public partial class HUD : CanvasLayer {
 		PopulateInventory();
 		player.Inventory.Added += (Item item) => { PopulateInventory(); };
 		player.Inventory.Removed += (Item item) => { PopulateInventory(); };
+		PopulatePassives();
 	}
 
 	private void PopulateAttributes() {
@@ -82,6 +92,27 @@ public partial class HUD : CanvasLayer {
 		}
 	}
 
+	private void PopulatePassives() {
+		foreach (var passive in player.PassiveAttributes) {
+			var inst = PassiveHolderScene.Instantiate<PassiveHolder>();
+			PassiveAttributesContainer.AddChild(inst);
+			inst.Init(passive);
+			inst.Button.Pressed += () => { passive.LevelUp(player); };
+		}
+		foreach (var passive in player.PassiveEffects) {
+			var inst = PassiveHolderScene.Instantiate<PassiveHolder>();
+			PassiveEffectsContainer.AddChild(inst);
+			inst.Init(passive);
+			inst.Button.Pressed += () => { passive.LevelUp(player); };
+		}
+		foreach (var passive in player.PassiveProcs) {
+			var inst = PassiveHolderScene.Instantiate<PassiveHolder>();
+			PassiveProcsContainer.AddChild(inst);
+			inst.Init(passive);
+			inst.Button.Pressed += () => { passive.LevelUp(player); };
+		}
+	}
+
 	public override void _Process(double delta) {
 		// attributes
 		UpdateAttributes();
@@ -91,6 +122,8 @@ public partial class HUD : CanvasLayer {
 		UpdatePlayerStats();
 
 		UpdateGameStatistics();
+
+		UpdatePassiveHolders();
 	}
 
 	private void UpdateAttributes() {
@@ -153,6 +186,24 @@ public partial class HUD : CanvasLayer {
 		Assign(monstersKilledRecord, gameStatistics.MonstersKilledRecord);
 	}
 
+
+	private void UpdatePassiveHolders() {
+		foreach (var node in PassiveAttributesContainer.GetChildren()) {
+			if (node is PassiveHolder passiveHolder) {
+				passiveHolder.Update();
+			}
+		}
+		foreach (var node in PassiveEffectsContainer.GetChildren()) {
+			if (node is PassiveHolder passiveHolder) {
+				passiveHolder.Update();
+			}
+		}
+		foreach (var node in PassiveProcsContainer.GetChildren()) {
+			if (node is PassiveHolder passiveHolder) {
+				passiveHolder.Update();
+			}
+		}
+	}
 
 	private static void Assign(Label label, float stat) {
 		if (label != null)
