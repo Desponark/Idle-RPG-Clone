@@ -5,7 +5,7 @@
 [ext_resource type="Resource" uid="uid://boy3v5y0dq4ew" path="res://Resources/Items/HpPotion1.tres" id="2_egdpm"]
 [ext_resource type="Texture2D" uid="uid://blys046utppgd" path="res://Assets/Barnacle/barnacle_bite.png" id="3_2ar0i"]
 [ext_resource type="Resource" uid="uid://ds1hu60fuuq52" path="res://Resources/Items/HpPotion2.tres" id="3_tu6wd"]
-[ext_resource type="Script" path="res://Scripts/Agents/Enemies/Loot.cs" id="4_xuhag"]
+[ext_resource type="Script" path="res://Scripts/Resources/Loot.cs" id="4_xuhag"]
 
 [sub_resource type="Resource" id="Resource_cubnk"]
 script = ExtResource("4_xuhag")
