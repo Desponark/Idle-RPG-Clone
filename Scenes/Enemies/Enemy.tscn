@@ -6,7 +6,7 @@
 [ext_resource type="Resource" uid="uid://cu02kmqmaupaw" path="res://Resources/LootHpPotions.tres" id="3_sh2b2"]
 [ext_resource type="PackedScene" uid="uid://chun8qhnwv42k" path="res://Scenes/HUD/PointsBar.tscn" id="5_hxlna"]
 
-[node name="Node2D" type="Node2D" node_paths=PackedStringArray("Stats")]
+[node name="Enemy" type="Node2D" node_paths=PackedStringArray("Stats")]
 script = ExtResource("2_e7qlc")
 Loot = [ExtResource("3_sh2b2")]
 Stats = NodePath("Stats")

@@ -13,7 +13,7 @@
 [ext_resource type="Resource" uid="uid://ds1hu60fuuq52" path="res://Resources/Items/HpPotion2.tres" id="12_7mk5j"]
 [ext_resource type="PackedScene" uid="uid://chun8qhnwv42k" path="res://Scenes/HUD/PointsBar.tscn" id="12_md3qf"]
 
-[node name="Node2D" type="Node2D" node_paths=PackedStringArray("Inventory", "Stats")]
+[node name="Player" type="Node2D" node_paths=PackedStringArray("Inventory", "Stats") groups=["persist"]]
 script = ExtResource("2_y4nls")
 Inventory = NodePath("Inventory")
 Stats = NodePath("Stats")
@@ -27,6 +27,7 @@ texture = ExtResource("1_dmor0")
 unique_name_in_owner = true
 script = ExtResource("3_uus8g")
 Attributes = [ExtResource("6_443g1"), ExtResource("7_ommu6"), ExtResource("8_um52b")]
+hp = 10.0
 AP = 5
 
 [node name="Inventory" type="Node" parent="."]

@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://c5i2km2kcqp8t" path="res://Scenes/Player/Player.tscn" id="7_bamax"]
 [ext_resource type="PackedScene" uid="uid://dlfgk8v7lonjc" path="res://Scenes/HUD/HUD.tscn" id="8_j430g"]
 
-[node name="Gamemaster" type="Node2D" node_paths=PackedStringArray("player", "hud", "spawnTimer")]
+[node name="Gamemaster" type="Node2D" node_paths=PackedStringArray("player", "hud", "spawnTimer") groups=["persist"]]
 script = ExtResource("1_p34u7")
 player = NodePath("Player")
 hud = NodePath("HUD")

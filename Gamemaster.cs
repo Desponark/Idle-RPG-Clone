@@ -24,14 +24,14 @@ public partial class Gamemaster : Node2D {
 	private Timer spawnTimer;
 	private List<Enemy> enemies = new();
 
-	private GameStatistics gameStatistics = new();
+	public GameStatistics gameStatistics = new();
 
 	private Random random = new();
 
 	public override void _Ready() {
 		spawnTimer.Timeout += Timeout;
 
-		SaveData.Load(player, gameStatistics);
+		SaveData.Load(this);
 		player.Died += OnPlayerDeath;
 
 		hud.Setup(gameStatistics);
@@ -44,6 +44,9 @@ public partial class Gamemaster : Node2D {
 	public override void _Input(InputEvent @event) {
 		if ((@event is InputEventKey || @event is InputEventMouseButton) && @event.IsPressed()) {
 			if (CurrentState == State.None) CurrentState = State.Running;
+		}
+		if (@event is InputEventKey eventKey && eventKey.Keycode == Key.Space && @event.IsPressed()) {
+			SaveData.Save(this);
 		}
 	}
 
@@ -118,7 +121,8 @@ public partial class Gamemaster : Node2D {
 
 	private void OnPlayerDeath(Agent agent) {
 		// restart game
-		SaveData.Save(agent, gameStatistics);
+		Logger.Log($"{player.Name} [shake rate=20.0 level=5 connected=1][color=red]has died[/color][/shake] to {enemies.FirstOrDefault().Name}");
+		SaveData.Save(this);
 		GetTree().ReloadCurrentScene();
 	}
 }
