@@ -33,10 +33,27 @@ public partial class Agent : Node2D {
 
 	public void Attack(Agent target, double delta) {
 		if (CanAttack(delta)) {
-			target.TakeDamage(Stats.Atk);
-			Logger.Log($"{Name} attacked for [color=red]{Stats.Atk} damage[/color]");
+			var damage = Stats.Atk;
+
+			damage = target.ModifyIncomingDamage(this, damage);
+
+			target.TakeDamage(damage);
+
+			Logger.Log($"{Name} attacked for [color=red]{damage} damage[/color]");
+
+			foreach (var passiveProc in PassiveProcs) {
+				passiveProc.Proc(this, target);
+			}
 		}
 	}
+
+	private float ModifyIncomingDamage(Agent attackee, float damage) {
+		foreach (var PassiveEffect in PassiveEffects) {
+			damage += PassiveEffect.React(this, attackee, damage);
+		}
+		return damage;
+	}
+
 
 	public bool IsInCombatDistance(Agent enemy) {
 		if (enemy == null)
