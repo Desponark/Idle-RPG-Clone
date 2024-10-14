@@ -19,6 +19,10 @@ To summarize the task:
 - Log-Screen that shows atleast whenever the player died
 - Three different enemies that differ via attacks, hitpoints and chance for HP Potion loot
 
+### Screenshot
+<img width="577" alt="IdleRpgClone_LqeoMG9eqF" src="https://github.com/user-attachments/assets/521868be-19c1-45a8-b39a-a81e3b3db0d3">
+
+
 # Folder Structure
 - Assets				- All graphical assets used
 - Resources				- Pre-created custom resources
