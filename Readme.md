@@ -31,7 +31,7 @@ Status: Working & Finished requirements (but not finished everything planned)
 - Gamemaster.tscn			- Main scene
 - SaveData.tres				- Gets created upon death, keeps some info for next run
 
-# The Most important scenes for editing the game are:
+# Most important scenes for editing the game:
 - Gamemaster
 - Player
 - Enemy	
