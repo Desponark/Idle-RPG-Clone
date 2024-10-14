@@ -1,8 +1,8 @@
 # Basics
-- Game Engine: Godot 4.1 mono
-- Language used: C#
-- IDE used: VS Code
-- Status: Working & Finished requirements (but not finished everything planned)
+Game Engine: Godot 4.1 mono  
+Language used: C#  
+IDE used: VS Code  
+Status: Working & Finished requirements (but not finished everything planned)  
 
 # Folder Structure
 - Assets				- All graphical assets used
@@ -40,57 +40,44 @@
 	- Contains the entire HUD (except small hp bars those are in enemy and player scene)
 
 # Main Classes
-- Gamemaster.cs
-	- Handles the game itself, spawning enemies, moving enemies and the parallax background and updating game statistics.
-- Agent.cs
-	- This class contains almost all code needed for players and enemies to work. It handles stats, abilities, passives, whether an agent died, fighting, attribute increases, and exp and level gains.
-
-- Stats.cs
-	- Handles attributes (which are dynamically added via editor) and all derived stats. Only consists of fields and properties. Handles changing stats via getters.
-
-- Enemy.cs
-	- Inherits from agent, exp worth, Loot array & has dropLoot logic. Needs to be in a “Move” group and implement the Move function in order to be moved by the gamemaster.
-
-- Player.cs
-	- Inherits from agents and only has Inventory. Could be removed if Inventory was added to Agent.cs.
-
-- Inventory.cs
-	- Handles adding, removing and getting items.
-
-- Ability.cs
-	- An ability is something the player unlocks and then can use for an immediate effect. Can be upgraded to be stronger via RP.
-	- Implements basic fields and functionalities for an ability in general. Is intended as a blueprint for creating new abilities by inheriting it and overriding / adding as needed. See Firebolt.cs for example.
-
-- Attribute.cs
-	- Attributes serve as a base to increase derived stats. Can be increased via AP.
-	- Contains everything needed for creating basic attributes. Is intended as a blueprint. BaseValue is only ever modified by itself and Value can be modified by others. See Strength.cs for example derivative.
-
-- Items.cs
-	- Abstract base class for all items that can be used. Not intended to be used by itself. See HpPotion.cs for a derivative.
-
-- Loot.cs
-	- Holder for items in relation to a drop chance.
-
-- Passives
-	- Passives serve as unlock and upgradeable special effects. They are levelled up with RP
-	- Passives are split into 3 classes. Not completely finished implementation.
-	
-	- PassiveAttribute.cs
-		- Attribute passives simply increase the selected attributes by an extra amount. Has an array of attributes that tells it which attributes it should modify.
-	- PassiveEffect.cs
-		- Effect passives trigger whenever an agent receives damage and can modify the resulting damage. Has an enum that tells it what to do if triggered.
-	- PassiveProc.cs
-		- Proc passives trigger whenever an agent attacks another agent. Has an enum that tells it what to do if triggered.
-
-- SaveData.cs
-	- Handles saving of player RP, Gamestatistics and the last 10 log messages so scene can simply be reloaded on player death.
-
-- Logger.cs
-	- Handles writing Log messages to a RichtTextLabel displayed in the HUD. For convenience it is used via a static method. Like this Logger.Log(“text”).
-	- Internally it uses a static event to message itself the new message, adding it to the RichtTextLabel. Because it is impossible to get the raw text back from a RichtTextLabel there is a field that also saves all added text.
+- Gamemaster.cs  
+	Handles the game itself, spawning enemies, moving enemies and the parallax background and updating game statistics.
+- Agent.cs  
+	This class contains almost all code needed for players and enemies to work. It handles stats, abilities, passives, whether an agent died, fighting, attribute increases, and exp and level gains.
+- Stats.cs  
+	Handles attributes (which are dynamically added via editor) and all derived stats. Only consists of fields and properties. Handles changing stats via getters.
+- Enemy.cs  
+	Inherits from agent, exp worth, Loot array & has dropLoot logic. Needs to be in a “Move” group and implement the Move function in order to be moved by the gamemaster.
+- Player.cs  
+	Inherits from agents and only has Inventory. Could be removed if Inventory was added to Agent.cs.
+- Inventory.cs  
+	Handles adding, removing and getting items.
+- Ability.cs  
+	An ability is something the player unlocks and then can use for an immediate effect. Can be upgraded to be stronger via RP.  
+	Implements basic fields and functionalities for an ability in general. Is intended as a blueprint for creating new abilities by inheriting it and overriding / adding as needed. See Firebolt.cs for example.
+- Attribute.cs  
+	Attributes serve as a base to increase derived stats. Can be increased via AP.  
+	Contains everything needed for creating basic attributes. Is intended as a blueprint. BaseValue is only ever modified by itself and Value can be modified by others. See Strength.cs for example derivative.
+- Items.cs  
+	Abstract base class for all items that can be used. Not intended to be used by itself. See HpPotion.cs for a derivative.
+- Loot.cs  
+	Holder for items in relation to a drop chance.
+- Passives  
+	Passives serve as unlock and upgradeable special effects. They are levelled up with RP.  
+	Passives are split into 3 classes. Not completely finished implementation.
+	- PassiveAttribute.cs  
+		Attribute passives simply increase the selected attributes by an extra amount. Has an array of attributes that tells it which attributes it should modify.
+	- PassiveEffect.cs  
+		Effect passives trigger whenever an agent receives damage and can modify the resulting damage. Has an enum that tells it what to do if triggered.
+	- PassiveProc.cs  
+		Proc passives trigger whenever an agent attacks another agent. Has an enum that tells it what to do if triggered.
+- SaveData.cs  
+	Handles saving of player RP, Gamestatistics and the last 10 log messages so scene can simply be reloaded on player death.
+- Logger.cs  
+	- Handles writing Log messages to a RichtTextLabel displayed in the HUD. For convenience it is used via a static method. Like this Logger.Log(“text”).  
+	- Internally it uses a static event to message itself the new message, adding it to the RichtTextLabel. Because it is impossible to get the raw text back from a RichtTextLabel there is a field that also saves all added text.  
 	- Look in the Godot documentation for BBcode in order to see how messages can be formatted.
-
-- Gamestatistics.cs
+- Gamestatistics.cs  
 	- Simply stores game statistics.
 
 
