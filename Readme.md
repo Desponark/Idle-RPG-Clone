@@ -4,7 +4,7 @@
 	IDE used: VS Code
 	Status: Working & Finished requirements (but not finished everything planned)
 
-Folder Structure
+# Folder Structure
 	Assets				- all graphical assets used
 	Resources			- pre-created custom resources
 		Abilities	
@@ -31,7 +31,7 @@ Folder Structure
 	Gamemaster.tscn		- main scene
 	SaveData.tres			- gets created upon death, keeps some info for next run
 
-The Most important scenes for editing the game are:
+# The Most important scenes for editing the game are:
 	Gamemaster
 	Player
 	Enemy	
@@ -39,7 +39,7 @@ The Most important scenes for editing the game are:
 	HUD.tscn
 		contains the entire HUD (except small hp bars those are in enemy and player scene)
 
-Main Classes
+# Main Classes
 	Gamemaster.cs
 		Handles the game itself, spawning enemies, moving enemies and the parallax background and updating game statistics.
 		Agent.cs
@@ -94,7 +94,7 @@ Main Classes
 		Simply stores game statistics.
 
 
-Adding new content
+# Adding new content
 	Enemies
 		In order to create a new Enemy:
 			1. Top left -> Scene -> New Inherited Scene -> select Enemy.tscn
