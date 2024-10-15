@@ -1,7 +1,7 @@
 # Basics
 Game Engine: Godot 4.1 mono  
-Language used: C#  
-IDE used: VS Code  
+Language: C#  
+IDE: VS Code  
 Status: Working & Finished requirements (but not finished everything planned)  
 
 ### Context
