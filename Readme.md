@@ -5,7 +5,8 @@ IDE: VS Code
 Status: Working & Finished requirements (but not finished everything planned)  
 
 ### Context
-This was an Exam during my education in which I had to recreate certain features from the Game [Idle RPG](https://www.kongregate.com/games/zerokalt/idle-rpg) within one week.  
+During my education as a Game Engineer at S4G School for Games Hamburg, as an exam, I had to recreate certain features from the Game [Idle RPG](https://www.kongregate.com/games/zerokalt/idle-rpg) within one week.  
+
 To summarize the task:  
 - Not necessary to make exact copy
 - Code built so game could be easily expanded
